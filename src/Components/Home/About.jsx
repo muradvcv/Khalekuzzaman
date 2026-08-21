@@ -42,7 +42,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-[#080808] py-28 text-white"
+      className="relative overflow-hidden bg-[#080808] py-16 text-white"
     >
       {/* ================= BACKGROUND ================= */}
 
@@ -61,16 +61,16 @@ const About = () => {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
-        {/*HEADER */}
+        {/* ================= HEADER ================= */}
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mb-16 text-center"
+          className="mb-10 text-center"
         >
-          <div className="mb-5 flex items-center justify-center gap-3">
+          <div className="mb-4 flex items-center justify-center gap-3">
             <span className="h-px w-10 bg-[#DC2F02] sm:w-12" />
 
             <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#DC2F02] sm:tracking-[0.35em]">
@@ -87,7 +87,7 @@ const About = () => {
             </span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-gray-400 md:text-base">
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-gray-400 md:text-base">
             I&apos;m a Computer Technology student and Full Stack Developer
             focused on creating modern, responsive and scalable web
             applications.
@@ -96,7 +96,7 @@ const About = () => {
 
         {/* ================= TOP GRID ================= */}
 
-        <div className="grid items-stretch gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="grid items-stretch gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           {/* ================= CODE CARD ================= */}
 
           <motion.div
@@ -110,7 +110,7 @@ const About = () => {
 
             <div
               className="
-                relative flex h-full min-h-[560px] flex-col
+                relative flex h-full min-h-[440px] flex-col
                 overflow-hidden rounded-[28px]
                 border border-[#DC2F02]/20
                 bg-[#0d1210]
@@ -124,7 +124,7 @@ const About = () => {
                   flex items-center justify-between
                   border-b border-white/10
                   bg-[#111713]
-                  px-4 py-4
+                  px-4 py-3
                   sm:px-5
                 "
               >
@@ -148,10 +148,10 @@ const About = () => {
 
               {/* Code Area */}
 
-              <div className="relative flex flex-1 flex-col p-5 sm:p-7 md:p-8">
+              <div className="relative flex flex-1 flex-col p-4 sm:p-5 md:p-6">
                 <div className="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-[#DC2F02]/30 to-transparent" />
 
-                <div className="font-mono text-[11px] leading-7 sm:text-xs sm:leading-8 md:text-sm">
+                <div className="font-mono text-[11px] leading-6 sm:text-xs sm:leading-7 md:text-sm">
                   <p className="text-gray-400">
                     <span className="text-purple-400">const</span>{' '}
                     <span className="text-white">developer</span>{' '}
@@ -214,13 +214,13 @@ const About = () => {
 
                   <p className="text-white">{'};'}</p>
 
-                  <div className="mt-4 h-5 w-2 animate-pulse bg-[#DC2F02]" />
+                  <div className="mt-3 h-5 w-2 animate-pulse bg-[#DC2F02]" />
                 </div>
 
                 {/* Bottom Info */}
 
-                <div className="mt-auto grid gap-3 pt-8 sm:grid-cols-2">
-                  <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+                <div className="mt-auto grid gap-3 pt-5 sm:grid-cols-2">
+                  <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
                     <div className="flex items-center gap-3">
                       <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#DC2F02]/10">
                         <Code2
@@ -241,7 +241,7 @@ const About = () => {
                     </div>
                   </div>
 
-                  <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+                  <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
                     <div className="flex items-center gap-3">
                       <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#DC2F02]/10">
                         <Terminal
@@ -256,7 +256,7 @@ const About = () => {
                         </p>
 
                         <p className="mt-1 text-sm font-semibold">
-                          Running DB
+                          BD calling
                         </p>
                       </div>
                     </div>
@@ -275,7 +275,7 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="flex h-full flex-col justify-center"
           >
-            <div className="mb-6 flex items-center gap-3">
+            <div className="mb-4 flex items-center gap-3">
               <Sparkles
                 size={20}
                 className="shrink-0 text-[#DC2F02]"
@@ -288,15 +288,15 @@ const About = () => {
               <div className="h-px flex-1 bg-white/10" />
             </div>
 
-            <p className="text-sm leading-8 text-gray-400 md:text-base">
+            <p className="text-sm leading-7 text-gray-400 md:text-base">
               I&apos;m currently studying{' '}
               <span className="font-semibold text-white">
                 Computer Technology
               </span>{' '}
               at{' '}
-              <span className="font-semibold text-[#DC2F02]">
+              <Link target='_blank' href={'https://mpi.polytech.gov.bd'} className="font-semibold text-[#DC2F02]">
                 Mymensingh Polytechnic Institute
-              </span>
+              </Link>
               . Alongside my studies, I&apos;m gaining real-world experience
               as a{' '}
               <span className="font-semibold text-white">
@@ -304,12 +304,12 @@ const About = () => {
               </span>{' '}
               at{' '}
               <span className="font-semibold text-[#DC2F02]">
-                Running DB
+                BD Calling
               </span>
               .
             </p>
 
-            <p className="mt-5 text-sm leading-8 text-gray-400 md:text-base">
+            <p className="mt-3 text-sm leading-7 text-gray-400 md:text-base">
               My main focus is building modern, scalable web applications
               using the{' '}
               <span className="font-semibold text-white">
@@ -322,19 +322,20 @@ const About = () => {
 
             {/* ================= STATS ================= */}
 
-            <div className="mt-8 grid grid-cols-3 gap-2 sm:gap-3">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.1,
-                  }}
-                  whileHover={{ y: -5 }}
-                  className="
+            <Link target="_blank" href={'https://github.com/muradvcv'}>
+              <div className="mt-5 grid grid-cols-3 gap-2 sm:gap-3">
+                {stats.map((stat, index) => (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.5,
+                      delay: index * 0.1,
+                    }}
+                    whileHover={{ y: -5 }}
+                    className="
                     rounded-2xl
                     border border-white/10
                     bg-white/[0.03]
@@ -344,22 +345,23 @@ const About = () => {
                     hover:bg-[#DC2F02]/5
                     sm:p-4
                   "
-                >
-                  <h4 className="text-lg font-black text-[#DC2F02] sm:text-xl md:text-2xl">
-                    {stat.value}
-                  </h4>
+                  >
+                    <h4 className="text-lg font-black text-[#DC2F02] sm:text-xl md:text-2xl">
+                      {stat.value}
+                    </h4>
 
-                  <p className="mt-1 text-[9px] text-gray-500 sm:text-[10px] md:text-xs">
-                    {stat.label}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
+                    <p className="mt-1 text-[9px] text-gray-500 sm:text-[10px] md:text-xs">
+                      {stat.label}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+              </Link>
 
             {/* ================= TECHNOLOGIES ================= */}
 
-            <div className="mt-8">
-              <div className="mb-4 flex items-center gap-3">
+            <div className="mt-5">
+              <div className="mb-3 flex items-center gap-3">
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-300">
                   Technologies
                 </span>
@@ -412,11 +414,11 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-16"
+          className="mt-10"
         >
-          {/* ================= SECTION TITLE ================= */}
+          {/* ================= LOCATION TITLE ================= */}
 
-          <div className="mb-5 flex items-center gap-3">
+          <div className="mb-4 flex items-center gap-3">
             <MapPin
               size={20}
               className="shrink-0 text-[#DC2F02]"
@@ -433,26 +435,26 @@ const About = () => {
 
           <div
             className="
-      grid
-      min-h-[340px]
-      overflow-hidden
-      rounded-[24px]
-      border border-white/10
-      bg-[#0d1210]
-      shadow-[0_20px_60px_rgba(0,0,0,0.35)]
-      lg:grid-cols-[0.75fr_1.25fr]
-    "
+              grid
+              min-h-[300px]
+              overflow-hidden
+              rounded-[24px]
+              border border-white/10
+              bg-[#0d1210]
+              shadow-[0_20px_60px_rgba(0,0,0,0.35)]
+              lg:grid-cols-[0.75fr_1.25fr]
+            "
           >
             {/* ================= LOCATION INFO ================= */}
 
             <div
               className="
-        relative
-        flex flex-col justify-center
-        p-5
-        sm:p-6
-        md:p-7
-      "
+                relative
+                flex flex-col justify-center
+                p-5
+                sm:p-6
+                md:p-7
+              "
             >
               {/* Left Accent Line */}
 
@@ -460,7 +462,7 @@ const About = () => {
 
               {/* Map Icon */}
 
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-[#DC2F02]/30 bg-[#DC2F02]/10">
+              <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl border border-[#DC2F02]/30 bg-[#DC2F02]/10">
                 <Map
                   size={24}
                   className="text-[#DC2F02]"
@@ -473,7 +475,7 @@ const About = () => {
                 Based In
               </p>
 
-              <h3 className="mt-2 text-2xl font-black sm:text-3xl">
+              <h3 className="mt-1 text-2xl font-black sm:text-3xl">
                 Banasree
               </h3>
 
@@ -483,7 +485,7 @@ const About = () => {
 
               {/* Description */}
 
-              <p className="mt-3 max-w-md text-xs leading-6 text-gray-500 sm:text-sm">
+              <p className="mt-2 max-w-md text-xs leading-5 text-gray-500 sm:text-sm">
                 I&apos;m currently based in Banasree, Dhaka and working as a
                 Full Stack Developer Intern at Running DB while continuing my
                 studies in Computer Technology.
@@ -491,7 +493,7 @@ const About = () => {
 
               {/* ================= CURRENTLY WORKING ================= */}
 
-              <div className="mt-4 flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] p-3">
+              <div className="mt-3 flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] p-3">
                 {/* Status Dot */}
 
                 <span className="relative flex h-2.5 w-2.5 shrink-0">
@@ -515,25 +517,25 @@ const About = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="
-                group
-                inline-flex
-                items-center
-                gap-1
-                rounded-md
-                border border-[#DC2F02]/50
-                bg-[#DC2F02]/10
-                px-2 py-0.5
-                font-bold
-                text-[#ff5a2f]
-                shadow-[0_0_10px_rgba(220,47,2,0.12)]
-                transition-all
-                duration-300
-                hover:-translate-y-0.5
-                hover:border-[#DC2F02]
-                hover:bg-[#DC2F02]/20
-                hover:text-white
-                hover:shadow-[0_0_16px_rgba(220,47,2,0.3)]
-              "
+                        group
+                        inline-flex
+                        items-center
+                        gap-1
+                        rounded-md
+                        border border-[#DC2F02]/50
+                        bg-[#DC2F02]/10
+                        px-2 py-0.5
+                        font-bold
+                        text-[#ff5a2f]
+                        shadow-[0_0_10px_rgba(220,47,2,0.12)]
+                        transition-all
+                        duration-300
+                        hover:-translate-y-0.5
+                        hover:border-[#DC2F02]
+                        hover:bg-[#DC2F02]/20
+                        hover:text-white
+                        hover:shadow-[0_0_16px_rgba(220,47,2,0.3)]
+                      "
                     >
                       <span>
                         BD Calling
@@ -543,11 +545,11 @@ const About = () => {
                         size={10}
                         strokeWidth={2.5}
                         className="
-                  transition-all
-                  duration-300
-                  group-hover:translate-x-0.5
-                  group-hover:-translate-y-0.5
-                "
+                          transition-all
+                          duration-300
+                          group-hover:translate-x-0.5
+                          group-hover:-translate-y-0.5
+                        "
                       />
                     </Link>
                   </p>
@@ -561,36 +563,36 @@ const About = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-          group
-          mt-4
-          inline-flex
-          w-fit
-          items-center
-          gap-2
-          rounded-lg
-          border border-[#DC2F02]/40
-          bg-[#DC2F02]/10
-          px-3.5
-          py-2.5
-          text-xs
-          font-semibold
-          transition
-          duration-300
-          hover:border-[#DC2F02]
-          hover:bg-[#DC2F02]
-          hover:shadow-[0_0_20px_rgba(220,47,2,0.2)]
-        "
+                  group
+                  mt-3
+                  inline-flex
+                  w-fit
+                  items-center
+                  gap-2
+                  rounded-lg
+                  border border-[#DC2F02]/40
+                  bg-[#DC2F02]/10
+                  px-3.5
+                  py-2
+                  text-xs
+                  font-semibold
+                  transition
+                  duration-300
+                  hover:border-[#DC2F02]
+                  hover:bg-[#DC2F02]
+                  hover:shadow-[0_0_20px_rgba(220,47,2,0.2)]
+                "
               >
                 Open in Google Maps
 
                 <ExternalLink
                   size={13}
                   className="
-            transition
-            duration-300
-            group-hover:translate-x-1
-            group-hover:-translate-y-0.5
-          "
+                    transition
+                    duration-300
+                    group-hover:translate-x-1
+                    group-hover:-translate-y-0.5
+                  "
                 />
               </a>
             </div>
@@ -599,26 +601,26 @@ const About = () => {
 
             <div
               className="
-        relative
-        min-h-[280px]
-        border-t
-        border-white/10
-        lg:min-h-[340px]
-        lg:border-l
-        lg:border-t-0
-      "
+                relative
+                min-h-[260px]
+                border-t
+                border-white/10
+                lg:min-h-[300px]
+                lg:border-l
+                lg:border-t-0
+              "
             >
               <iframe
                 title="Banasree Dhaka Map"
                 src="https://www.google.com/maps?q=Banasree%2C%20Dhaka%2C%20Bangladesh&output=embed"
                 className="
-          absolute
-          inset-0
-          h-full
-          w-full
-          grayscale-[0.25]
-          opacity-80
-        "
+                  absolute
+                  inset-0
+                  h-full
+                  w-full
+                  grayscale-[0.25]
+                  opacity-80
+                "
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
@@ -627,35 +629,35 @@ const About = () => {
 
               <div
                 className="
-          pointer-events-none
-          absolute
-          inset-0
-          bg-gradient-to-r
-          from-[#0a100d]/30
-          via-transparent
-          to-transparent
-        "
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  bg-gradient-to-r
+                  from-[#0a100d]/30
+                  via-transparent
+                  to-transparent
+                "
               />
 
               {/* ================= MAP LABEL ================= */}
 
               <div
                 className="
-          absolute
-          bottom-4
-          left-4
-          flex
-          items-center
-          gap-2.5
-          rounded-lg
-          border
-          border-white/10
-          bg-[#0a100d]/90
-          px-3
-          py-2.5
-          shadow-xl
-          backdrop-blur-md
-        "
+                  absolute
+                  bottom-4
+                  left-4
+                  flex
+                  items-center
+                  gap-2.5
+                  rounded-lg
+                  border
+                  border-white/10
+                  bg-[#0a100d]/90
+                  px-3
+                  py-2.5
+                  shadow-xl
+                  backdrop-blur-md
+                "
               >
                 <MapPin
                   size={16}
@@ -683,7 +685,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mt-14 flex justify-center"
+          className="mt-10 flex justify-center"
         >
           <Link
             href="#contact"
@@ -691,7 +693,7 @@ const About = () => {
               group inline-flex items-center gap-2
               rounded-xl
               bg-[#DC2F02]
-              px-6 py-3.5
+              px-6 py-3
               text-sm font-semibold
               shadow-[0_0_30px_rgba(220,47,2,0.15)]
               transition
@@ -716,7 +718,7 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 1 }}
           className="
-            mx-auto mt-20 h-px max-w-5xl origin-center
+            mx-auto mt-14 h-px max-w-5xl origin-center
             bg-gradient-to-r
             from-transparent
             via-[#DC2F02]/40
