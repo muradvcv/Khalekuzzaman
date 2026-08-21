@@ -17,77 +17,76 @@ const nodes = [
     name: 'MongoDB',
     Icon: SiMongodb,
     x: 110,
-    y: 300,
+    y: 275,
     color: '#47A248',
   },
   {
     name: 'Express.js',
     Icon: SiExpress,
-    x: 220,
-    y: 100,
+    x: 165,
+    y: 145,
     color: '#ffffff',
   },
   {
-    name: 'React',
-    Icon: SiReact,
-    x: 310,
-    y: 220,
-    color: '#61DAFB',
+    name: 'Tailwind CSS',
+    Icon: SiTailwindcss,
+    x: 295,
+    y: 90,
+    color: '#38BDF8',
   },
   {
     name: 'Node.js',
     Icon: SiNodedotjs,
-    x: 450,
-    y: 130,
+    x: 425,
+    y: 145,
     color: '#5FA04E',
   },
   {
     name: 'Next.js',
     Icon: SiNextdotjs,
-    x: 470,
-    y: 330,
+    x: 490,
+    y: 275,
     color: '#ffffff',
   },
   {
     name: 'JavaScript',
     Icon: SiJavascript,
-    x: 330,
-    y: 440,
+    x: 425,
+    y: 405,
     color: '#F7DF1E',
+  },
+  {
+    name: 'React',
+    Icon: SiReact,
+    x: 300,
+    y: 455,
+    color: '#61DAFB',
   },
   {
     name: 'TypeScript',
     Icon: SiTypescript,
-    x: 190,
-    y: 420,
+    x: 175,
+    y: 405,
     color: '#3178C6',
-  },
-  {
-    name: 'Tailwind CSS',
-    Icon: SiTailwindcss,
-    x: 110,
-    y: 180,
-    color: '#38BDF8',
   },
 ];
 
 const particles = [
   { x: 70, y: 100, size: 3 },
-  { x: 100, y: 390, size: 5 },
+  { x: 95, y: 390, size: 5 },
   { x: 160, y: 470, size: 3 },
   { x: 250, y: 40, size: 4 },
-  { x: 340, y: 70, size: 3 },
-  { x: 500, y: 100, size: 5 },
-  { x: 530, y: 280, size: 3 },
-  { x: 470, y: 470, size: 4 },
-  { x: 390, y: 500, size: 3 },
-  { x: 70, y: 250, size: 4 },
+  { x: 340, y: 65, size: 3 },
+  { x: 505, y: 100, size: 5 },
+  { x: 535, y: 280, size: 3 },
+  { x: 475, y: 470, size: 4 },
+  { x: 390, y: 505, size: 3 },
+  { x: 65, y: 250, size: 4 },
 ];
 
 const TechAnimation = () => {
   return (
     <div className="relative mx-auto flex h-[500px] w-full max-w-[600px] items-center justify-center overflow-hidden sm:h-[550px]">
-
       {/* SVG Background */}
       <motion.svg
         viewBox="0 0 600 550"
@@ -220,7 +219,7 @@ const TechAnimation = () => {
           }}
         />
 
-        {/* Decorative Hexagon Network */}
+        {/* Decorative Technology Network */}
         <motion.g
           animate={{
             rotate: [0, 2, 0, -2, 0],
@@ -237,14 +236,14 @@ const TechAnimation = () => {
           {/* Main Network */}
           <motion.path
             d="
-              M110 300
-              L110 180
-              L220 100
-              L310 220
-              L450 130
-              L470 330
-              L330 440
-              L190 420
+              M105 275
+              L145 145
+              L275 90
+              L425 145
+              L490 275
+              L425 405
+              L300 455
+              L175 405
               Z
             "
             fill="none"
@@ -261,41 +260,72 @@ const TechAnimation = () => {
             }}
           />
 
-          {/* Center Connections */}
+          {/* MongoDB → Center → Express */}
           <path
-            d="M110 300 L300 275 L220 100"
+            d="M105 275 L300 275 L145 145"
             fill="none"
             stroke="#DC2F02"
             strokeWidth="1"
             opacity="0.35"
           />
 
+          {/* Express → Center → Tailwind */}
           <path
-            d="M220 100 L300 275 L450 130"
+            d="M145 145 L300 275 L275 90"
             fill="none"
             stroke="#DC2F02"
             strokeWidth="1"
             opacity="0.3"
           />
 
+          {/* Tailwind → Center → Node */}
           <path
-            d="M450 130 L300 275 L470 330"
+            d="M275 90 L300 275 L425 145"
             fill="none"
             stroke="#DC2F02"
             strokeWidth="1"
             opacity="0.3"
           />
 
+          {/* Node → Center → Next */}
           <path
-            d="M470 330 L300 275 L330 440"
+            d="M425 145 L300 275 L490 275"
             fill="none"
             stroke="#DC2F02"
             strokeWidth="1"
             opacity="0.3"
           />
 
+          {/* Next → Center → JavaScript */}
           <path
-            d="M330 440 L300 275 L190 420"
+            d="M490 275 L300 275 L425 405"
+            fill="none"
+            stroke="#DC2F02"
+            strokeWidth="1"
+            opacity="0.3"
+          />
+
+          {/* JavaScript → Center → React */}
+          <path
+            d="M425 405 L300 275 L300 455"
+            fill="none"
+            stroke="#DC2F02"
+            strokeWidth="1"
+            opacity="0.3"
+          />
+
+          {/* React → Center → TypeScript */}
+          <path
+            d="M300 455 L300 275 L175 405"
+            fill="none"
+            stroke="#DC2F02"
+            strokeWidth="1"
+            opacity="0.3"
+          />
+
+          {/* TypeScript → Center → MongoDB */}
+          <path
+            d="M175 405 L300 275 L105 275"
             fill="none"
             stroke="#DC2F02"
             strokeWidth="1"
@@ -363,7 +393,7 @@ const TechAnimation = () => {
         ))}
       </motion.svg>
 
-      {/* Center MERN Icon */}
+      {/* Center MERN */}
       <motion.div
         animate={{
           scale: [1, 1.08, 1],
@@ -433,8 +463,7 @@ const TechAnimation = () => {
             -translate-x-1/2
             -translate-y-1/2
             cursor-pointer
-            items-center
-            justify-center
+            items-center justify-center
             rounded-2xl
             border border-white/10
             bg-[#111]/90

@@ -49,13 +49,13 @@ export default function RootLayout({ children }) {
         h-full antialiased`}
     >
       <body className="min-h-full">
-        <header>
+     
           <Navabar />
-        </header>
+      
         <main className="flex-grow">{children}</main>
-        <footer>
+   
           <Footer />
-        </footer>
+ 
       </body>
     </html>
   );

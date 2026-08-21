@@ -4,3 +4,72 @@
     --font-black-ops: var(--font-black-ops);
     --font-breeserif:var(--font-breeserif)
 }
+/* =========================================
+   BANNER WHITE DOT ANIMATION
+========================================= */
+
+@keyframes bannerDotMove {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  25% {
+    transform: translate3d(12px, -10px, 0);
+  }
+
+  50% {
+    transform: translate3d(-10px, 12px, 0);
+  }
+
+  75% {
+    transform: translate3d(8px, 6px, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bannerDotMoveSlow {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(-15px, 10px, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Main White Dots */
+
+.banner-dots {
+  opacity: 0.22;
+
+  background-image:
+    radial-gradient(circle,
+      rgba(255, 255, 255, 0.55) 1px,
+      transparent 1px);
+
+  background-size: 34px 34px;
+
+  animation: bannerDotMove 18s ease-in-out infinite;
+}
+
+/* Second Smaller Dot Layer */
+
+.banner-dots-slow {
+  opacity: 0.12;
+
+  background-image:
+    radial-gradient(circle,
+      rgba(255, 255, 255, 0.8) 0.7px,
+      transparent 0.7px);
+
+  background-size: 65px 65px;
+
+  animation: bannerDotMoveSlow 30s ease-in-out infinite;
+}
