@@ -416,7 +416,7 @@ const TechAnimation = () => {
         "
       >
         <span className="bg-gradient-to-br from-white to-[#DC2F02] bg-clip-text text-3xl font-black tracking-wider text-transparent">
-          MERN
+        MERN
         </span>
       </motion.div>
 

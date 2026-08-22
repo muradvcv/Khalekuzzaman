@@ -13,6 +13,7 @@ import {
 
 import { FaGithub } from 'react-icons/fa';
 import { CiLinkedin } from 'react-icons/ci';
+import { MdAdminPanelSettings, MdArrowOutward } from 'react-icons/md';
 
 const socials = [
   {
@@ -61,10 +62,14 @@ const TypewriterRole = () => {
         if (text === currentRole) {
           setIsDeleting(true);
         } else {
-          setText(currentRole.slice(0, text.length + 1));
+          setText(
+            currentRole.slice(0, text.length + 1)
+          );
         }
       } else {
-        setText(currentRole.slice(0, text.length - 1));
+        setText(
+          currentRole.slice(0, text.length - 1)
+        );
       }
     }, typingSpeed);
 
@@ -75,7 +80,16 @@ const TypewriterRole = () => {
     <span className="inline-flex items-center text-[#DC2F02]">
       {text}
 
-      <span className="ml-1 inline-block h-5 w-[2px] animate-pulse bg-[#DC2F02]" />
+      <span
+        className="
+          ml-1
+          inline-block
+          h-5
+          w-[2px]
+          animate-pulse
+          bg-[#DC2F02]
+        "
+      />
     </span>
   );
 };
@@ -86,16 +100,98 @@ const TypewriterRole = () => {
 
 const Banner = () => {
   return (
-    <section className="relative overflow-hidden bg-[#080808] py-20 text-white">
+    <section
+      className="
+        relative
+        overflow-hidden
+        bg-[#050505]
+        py-20
+        text-white
+      "
+    >
 
-      {/* Background Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_45%,rgba(220,47,2,0.12),transparent_25%)]" />
+      {/* =========================
+          BACKGROUND
+      ========================= */}
 
-      <div className="relative mx-auto max-w-7xl px-6 pt-8">
+      <div className="pointer-events-none absolute inset-0">
 
-        <div className="grid min-h-[520px] items-center lg:grid-cols-2">
+        {/* Orange Glow */}
 
-          {/* ================= LEFT CONTENT ================= */}
+        <motion.div
+          animate={{
+            scale: [1, 1.12, 1],
+            opacity: [0.06, 0.12, 0.06],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+          className="
+            absolute
+            left-[70%]
+            top-[15%]
+            h-[500px]
+            w-[500px]
+            -translate-x-1/2
+            rounded-full
+            bg-[#DC2F02]
+            blur-[150px]
+          "
+        />
+
+        {/* Bottom Glow */}
+
+        <div
+          className="
+            absolute
+            -bottom-40
+            -left-40
+            h-[400px]
+            w-[400px]
+            rounded-full
+            bg-[#DC2F02]/5
+            blur-[120px]
+          "
+        />
+
+        {/* Grid */}
+
+        <div
+          className="
+            absolute
+            inset-0
+            opacity-[0.025]
+            [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)]
+            [background-size:55px_55px]
+          "
+        />
+
+      </div>
+
+      <div
+        className="
+          relative
+          mx-auto
+          max-w-7xl
+          px-6
+          pt-8
+        "
+      >
+
+        <div
+          className="
+            grid
+            min-h-[520px]
+            items-center
+            lg:grid-cols-2
+          "
+        >
+
+          {/* ==================================================
+              LEFT CONTENT
+          ================================================== */}
 
           <motion.div
             initial={{
@@ -112,32 +208,86 @@ const Banner = () => {
             className="relative z-10"
           >
 
-            <p className="mb-3 text-base font-medium text-[#DC2F02]">
+            <p className="
+              mb-3
+              text-base
+              font-medium
+              text-[#DC2F02]
+            ">
               Hi, I&apos;m
             </p>
 
-            <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
-              <span className="bg-gradient-to-r from-[#F5F5F5] via-[#D9D9D9] to-[#DC2F02] bg-clip-text font-black-ops tracking-wider text-transparent">
+            <h1
+              className="
+                text-4xl
+                font-bold
+                tracking-tight
+                md:text-5xl
+              "
+            >
+              <span
+                className="
+                  bg-gradient-to-r
+                  from-[#F5F5F5]
+                  via-[#D9D9D9]
+                  to-[#DC2F02]
+                  bg-clip-text
+                  font-black-ops
+                  tracking-wider
+                  text-transparent
+                "
+              >
                 Md. Khalekuzzaman
               </span>
             </h1>
 
-            <h2 className="mt-3 flex min-h-[32px] flex-wrap items-center gap-1 text-lg text-gray-300 font-breeserif">
-              <span>Junior Full Stack /</span>
+            <h2
+              className="
+                mt-3
+                flex
+                min-h-[32px]
+                flex-wrap
+                items-center
+                gap-1
+                text-lg
+                text-gray-300
+                font-breeserif
+              "
+            >
+              <span>
+              Full Stack Developer/
+              </span>
 
               <TypewriterRole />
             </h2>
 
-            <p className="mt-5 max-w-md text-sm leading-6 text-gray-400">
-              I build modern, responsive and scalable web applications using
-              MongoDB, Express.js, React, Node.js and Next.js.
+            <p
+              className="
+                mt-5
+                max-w-md
+                text-sm
+                leading-6
+                text-gray-400
+              "
+            >
+              I build modern, responsive and scalable web
+              applications using MongoDB, Express.js, React,
+              Node.js and Next.js.
             </p>
 
-            {/* Buttons */}
-            <div className="mt-6 flex flex-wrap gap-3">
+            {/* =========================
+                BUTTONS
+            ========================= */}
+
+            <div className="
+              mt-6
+              flex
+              flex-wrap
+              gap-3
+            ">
 
               <Link
-                href="#projects"
+                href="/projects"
                 className="
                   group
                   flex
@@ -158,7 +308,10 @@ const Banner = () => {
 
                 <ArrowRight
                   size={16}
-                  className="transition group-hover:translate-x-1"
+                  className="
+                    transition
+                    group-hover:translate-x-1
+                  "
                 />
               </Link>
 
@@ -183,43 +336,53 @@ const Banner = () => {
                 "
               >
                 <Download size={16} />
+
                 Download CV
               </a>
 
             </div>
 
-            {/* Social Links */}
-            <div className="mt-6 flex gap-3">
+            {/* =========================
+                SOCIAL LINKS
+            ========================= */}
 
-              {socials.map(({ icon: Icon, link }, index) => (
-                <a
-                  key={index}
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    flex
-                    h-10
-                    w-10
-                    items-center
-                    justify-center
-                    rounded
-                    border
-                    border-white/10
-                    bg-white/5
-                    text-gray-300
-                    transition
-                    hover:-translate-y-1
-                    hover:border-[#DC2F02]
-                    hover:text-[#DC2F02]
-                  "
-                >
-                  <Icon size={20} />
-                </a>
-              ))}
+            <div className="
+              mt-6
+              flex
+              gap-3
+            ">
+
+              {socials.map(
+                ({ icon: Icon, link }, index) => (
+                  <a
+                    key={index}
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      flex
+                      h-10
+                      w-10
+                      items-center
+                      justify-center
+                      rounded
+                      border
+                      border-white/10
+                      bg-white/5
+                      text-gray-300
+                      transition
+                      hover:-translate-y-1
+                      hover:border-[#DC2F02]
+                      hover:text-[#DC2F02]
+                    "
+                  >
+                    <Icon size={20} />
+                  </a>
+                )
+              )}
 
               <a
-                href="mailto:your@email.com"
+                href="mailto:muradvcv@gmail.com"
                 className="
                   flex
                   h-10
@@ -242,16 +405,146 @@ const Banner = () => {
 
             </div>
 
+            {/* ==================================================
+                ADMIN ACCESS
+            ================================================== */}
+
+            <Link href="/auth/login">
+
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 15,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 1,
+                  duration: 0.6,
+                }}
+                whileHover={{
+                  y: -4,
+                  scale: 1.015,
+                }}
+                whileTap={{
+                  scale: 0.98,
+                }}
+                className="
+                  group
+                  mt-8
+                  flex
+                  max-w-md
+                  cursor-pointer
+                  items-center
+                  gap-4
+                  rounded-2xl
+                  border
+                  border-white/10
+                  bg-white/[0.025]
+                  p-4
+                  backdrop-blur-sm
+                  transition-all
+                  duration-300
+                  hover:border-[#DC2F02]/40
+                  hover:bg-[#DC2F02]/[0.04]
+                  hover:shadow-[0_10px_40px_rgba(220,47,2,0.08)]
+                "
+              >
+
+                {/* Admin Icon */}
+
+                <motion.div
+                  whileHover={{
+                    rotate: -5,
+                    scale: 1.08,
+                  }}
+                  className="
+                    flex
+                    h-11
+                    w-11
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-xl
+                    border
+                    border-[#DC2F02]/20
+                    bg-[#DC2F02]/10
+                  "
+                >
+                  <MdAdminPanelSettings
+                    size={23}
+                    className="text-[#DC2F02]"
+                  />
+                </motion.div>
+
+                {/* Text */}
+
+                <div className="min-w-0">
+
+                  <p
+                    className="
+                      text-[10px]
+                      font-bold
+                      uppercase
+                      tracking-[0.18em]
+                      text-[#DC2F02]
+                    "
+                  >
+                    Continue as Admin
+                  </p>
+
+                  <p
+                    className="
+                      mt-1
+                      text-xs
+                      leading-5
+                      text-gray-500
+                    "
+                  >
+                    Continue as an admin to manage portfolio content.
+                  </p>
+
+                </div>
+
+                {/* Arrow */}
+
+                <MdArrowOutward
+                  size={18}
+                  className="
+                    ml-auto
+                    shrink-0
+                    text-gray-600
+                    transition-all
+                    duration-300
+                    group-hover:-translate-y-1
+                    group-hover:translate-x-1
+                    group-hover:text-[#DC2F02]
+                  "
+                />
+
+              </motion.div>
+
+            </Link>
+
           </motion.div>
 
+          {/* ==================================================
+              DESKTOP PROFILE
+          ================================================== */}
 
-          {/* ================= DESKTOP PROFILE ================= */}
+          <div
+            className="
+              relative
+              hidden
+              h-[520px]
+              overflow-hidden
+              lg:block
+            "
+          >
 
-          <div className="relative hidden h-[520px] overflow-hidden lg:block">
-
-            {/* =================================
-                OUTER WHITE DOTS
-            ================================= */}
+            {/* Outer White Dots */}
 
             <motion.svg
               viewBox="0 0 540 540"
@@ -287,11 +580,7 @@ const Banner = () => {
               />
             </motion.svg>
 
-
-            {/* =================================
-                RED DOT CIRCLE
-                IMAGE WILL STAY INSIDE THIS
-            ================================= */}
+            {/* Red Dot Circle */}
 
             <motion.svg
               viewBox="0 0 480 480"
@@ -327,10 +616,7 @@ const Banner = () => {
               />
             </motion.svg>
 
-
-            {/* =================================
-                INNER RED DOT CIRCLE
-            ================================= */}
+            {/* Inner Red Dot Circle */}
 
             <motion.svg
               viewBox="0 0 440 440"
@@ -366,10 +652,7 @@ const Banner = () => {
               />
             </motion.svg>
 
-
-            {/* =================================
-                CENTER CIRCLE
-            ================================= */}
+            {/* Center Circle */}
 
             <div
               className="
@@ -387,10 +670,7 @@ const Banner = () => {
               "
             />
 
-
-            {/* =================================
-                RED GLOW
-            ================================= */}
+            {/* Red Glow */}
 
             <motion.div
               animate={{
@@ -417,10 +697,7 @@ const Banner = () => {
               "
             />
 
-
-            {/* =================================
-                BOTTOM RED SHAPE
-            ================================= */}
+            {/* Bottom Red Shape */}
 
             <div
               className="
@@ -435,11 +712,7 @@ const Banner = () => {
               "
             />
 
-
-            {/* =================================
-                PROFILE IMAGE
-                STRICTLY INSIDE RED DOT CIRCLE
-            ================================= */}
+            {/* Profile Image */}
 
             <motion.div
               initial={{
@@ -470,7 +743,6 @@ const Banner = () => {
                 rounded-full
               "
             >
-
               <Image
                 src="/profile.png"
                 alt="Md. Khalekuzzaman Murad"
@@ -489,17 +761,28 @@ const Banner = () => {
                   object-bottom
                 "
               />
-
             </motion.div>
 
           </div>
 
+          {/* ==================================================
+              MOBILE PROFILE
+          ================================================== */}
 
-          {/* ================= MOBILE PROFILE ================= */}
-
-          <div className="relative mt-8 flex h-[400px] justify-center overflow-hidden lg:hidden">
+          <div
+            className="
+              relative
+              mt-8
+              flex
+              h-[400px]
+              justify-center
+              overflow-hidden
+              lg:hidden
+            "
+          >
 
             {/* Mobile Outer Dots */}
+
             <motion.svg
               viewBox="0 0 370 370"
               className="
@@ -531,8 +814,8 @@ const Banner = () => {
               />
             </motion.svg>
 
-
             {/* Mobile Red Dots */}
+
             <motion.svg
               viewBox="0 0 340 340"
               className="
@@ -564,8 +847,8 @@ const Banner = () => {
               />
             </motion.svg>
 
-
             {/* Mobile Glow */}
+
             <motion.div
               animate={{
                 scale: [1, 1.15, 1],
@@ -588,9 +871,8 @@ const Banner = () => {
               "
             />
 
+            {/* Mobile Image */}
 
-            {/* Mobile Image
-                Red dotted circle-এর ভিতরে */}
             <motion.div
               initial={{
                 opacity: 0,
@@ -615,7 +897,6 @@ const Banner = () => {
                 rounded-full
               "
             >
-
               <Image
                 src="/profile.png"
                 alt="Md. Khalekuzzaman Murad"
@@ -634,7 +915,6 @@ const Banner = () => {
                   object-bottom
                 "
               />
-
             </motion.div>
 
           </div>
