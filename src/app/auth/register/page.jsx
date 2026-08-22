@@ -24,7 +24,7 @@ const Register = () => {
     useState(false);
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#050505] text-white">
+    <main className="relative min-h-screen overflow-hidden bg-[#050505] text-white font-oswald tracking-wider">
 
       {/* ================= BACKGROUND ================= */}
 
