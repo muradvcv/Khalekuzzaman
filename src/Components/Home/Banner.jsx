@@ -13,7 +13,14 @@ import {
 
 import { FaGithub } from 'react-icons/fa';
 import { CiLinkedin } from 'react-icons/ci';
-import { MdAdminPanelSettings, MdArrowOutward } from 'react-icons/md';
+import {
+  MdAdminPanelSettings,
+  MdArrowOutward,
+} from 'react-icons/md';
+
+/* =========================
+   SOCIAL LINKS
+========================= */
 
 const socials = [
   {
@@ -51,24 +58,51 @@ const TypewriterRole = () => {
       typingSpeed = 1800;
     }
 
-    if (isDeleting && text === '') {
-      setIsDeleting(false);
-      setRoleIndex((prev) => (prev + 1) % roles.length);
-      return;
-    }
-
     const timeout = setTimeout(() => {
+      /* =========================
+         ROLE COMPLETE
+      ========================= */
+
+      if (!isDeleting && text === currentRole) {
+        setIsDeleting(true);
+        return;
+      }
+
+      /* =========================
+         DELETING COMPLETE
+      ========================= */
+
+      if (isDeleting && text === '') {
+        setIsDeleting(false);
+        setRoleIndex(
+          (prev) => (prev + 1) % roles.length
+        );
+        return;
+      }
+
+      /* =========================
+         TYPING
+      ========================= */
+
       if (!isDeleting) {
-        if (text === currentRole) {
-          setIsDeleting(true);
-        } else {
-          setText(
-            currentRole.slice(0, text.length + 1)
-          );
-        }
-      } else {
         setText(
-          currentRole.slice(0, text.length - 1)
+          currentRole.slice(
+            0,
+            text.length + 1
+          )
+        );
+      }
+
+      /* =========================
+         DELETING
+      ========================= */
+
+      else {
+        setText(
+          currentRole.slice(
+            0,
+            text.length - 1
+          )
         );
       }
     }, typingSpeed);
@@ -109,7 +143,6 @@ const Banner = () => {
         text-white
       "
     >
-
       {/* =========================
           BACKGROUND
       ========================= */}
@@ -167,8 +200,11 @@ const Banner = () => {
             [background-size:55px_55px]
           "
         />
-
       </div>
+
+      {/* =========================
+          MAIN CONTAINER
+      ========================= */}
 
       <div
         className="
@@ -179,7 +215,6 @@ const Banner = () => {
           pt-8
         "
       >
-
         <div
           className="
             grid
@@ -207,15 +242,20 @@ const Banner = () => {
             }}
             className="relative z-10"
           >
+            {/* Greeting */}
 
-            <p className="
-              mb-3
-              text-base
-              font-medium
-              text-[#DC2F02]
-            ">
+            <p
+              className="
+                mb-3
+                text-base
+                font-medium
+                text-[#DC2F02]
+              "
+            >
               Hi, I&apos;m
             </p>
+
+            {/* Name */}
 
             <h1
               className="
@@ -241,6 +281,8 @@ const Banner = () => {
               </span>
             </h1>
 
+            {/* Role */}
+
             <h2
               className="
                 mt-3
@@ -255,11 +297,13 @@ const Banner = () => {
               "
             >
               <span>
-              Full Stack Developer/
+                Full Stack Developer/
               </span>
 
               <TypewriterRole />
             </h2>
+
+            {/* Description */}
 
             <p
               className="
@@ -279,12 +323,15 @@ const Banner = () => {
                 BUTTONS
             ========================= */}
 
-            <div className="
-              mt-6
-              flex
-              flex-wrap
-              gap-3
-            ">
+            <div
+              className="
+                mt-6
+                flex
+                flex-wrap
+                gap-3
+              "
+            >
+              {/* View Work */}
 
               <Link
                 href="/projects"
@@ -315,6 +362,8 @@ const Banner = () => {
                 />
               </Link>
 
+              {/* Download CV */}
+
               <a
                 href="/resume.pdf"
                 download
@@ -339,19 +388,19 @@ const Banner = () => {
 
                 Download CV
               </a>
-
             </div>
 
             {/* =========================
                 SOCIAL LINKS
             ========================= */}
 
-            <div className="
-              mt-6
-              flex
-              gap-3
-            ">
-
+            <div
+              className="
+                mt-6
+                flex
+                gap-3
+              "
+            >
               {socials.map(
                 ({ icon: Icon, link }, index) => (
                   <a
@@ -381,6 +430,8 @@ const Banner = () => {
                 )
               )}
 
+              {/* Email */}
+
               <a
                 href="mailto:muradvcv@gmail.com"
                 className="
@@ -402,7 +453,6 @@ const Banner = () => {
               >
                 <Mail size={18} />
               </a>
-
             </div>
 
             {/* ==================================================
@@ -410,7 +460,6 @@ const Banner = () => {
             ================================================== */}
 
             <Link href="/auth/login">
-
               <motion.div
                 initial={{
                   opacity: 0,
@@ -482,7 +531,6 @@ const Banner = () => {
                 {/* Text */}
 
                 <div className="min-w-0">
-
                   <p
                     className="
                       text-[10px]
@@ -503,9 +551,9 @@ const Banner = () => {
                       text-gray-500
                     "
                   >
-                    Continue as an admin to manage portfolio content.
+                    Continue as an admin to manage
+                    portfolio content.
                   </p>
-
                 </div>
 
                 {/* Arrow */}
@@ -523,11 +571,8 @@ const Banner = () => {
                     group-hover:text-[#DC2F02]
                   "
                 />
-
               </motion.div>
-
             </Link>
-
           </motion.div>
 
           {/* ==================================================
@@ -762,7 +807,6 @@ const Banner = () => {
                 "
               />
             </motion.div>
-
           </div>
 
           {/* ==================================================
@@ -916,13 +960,9 @@ const Banner = () => {
                 "
               />
             </motion.div>
-
           </div>
-
         </div>
-
       </div>
-
     </section>
   );
 };
