@@ -3,56 +3,147 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-
 import {
-  User,
-  Mail,
-  Lock,
-  Eye,
-  EyeOff,
-  ArrowRight,
-  ArrowLeft,
-  ShieldCheck,
-  CircleCheck,
-  Sparkles,
-  Terminal,
+  User,Mail,Lock,Eye,EyeOff,ArrowRight,ArrowLeft,ShieldCheck,CircleCheck,Sparkles,
 } from 'lucide-react';
+import Animation from '@/Components/Home/Animation';
+
+const InputField = ({
+  id,
+  name,
+  label,
+  type = 'text',
+  placeholder,
+  icon: Icon,
+  required = false,
+  error = false,
+  ...props
+}) => (
+  <div>
+    <label
+      htmlFor={id}
+      className="mb-1.5 block text-[10px] font-medium text-gray-400"
+    >
+      {label}
+    </label>
+
+    <div className="group relative">
+      <Icon
+        size={15}
+        className={`absolute left-3.5 top-1/2 z-10 -translate-y-1/2 transition ${error
+            ? 'text-red-500'
+            : 'text-gray-600 group-focus-within:text-[#DC2F02]'
+          }`}
+      />
+
+      <input
+        id={id}
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        required={required}
+        {...props}
+        className={`h-10.5 w-full rounded-xl border bg-black/25 pl-10 pr-10 text-xs text-white outline-none transition placeholder:text-gray-700 ${error
+            ? 'border-red-500/60 focus:border-red-500/70 focus:ring-4 focus:ring-red-500/5'
+            : 'border-white/10 focus:border-[#DC2F02]/50 focus:ring-4 focus:ring-[#DC2F02]/5'
+          }`}
+      />
+    </div>
+  </div>
+);
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] =
-    useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const [confirmPasswordError, setConfirmPasswordError] = useState(false);
+
+  const passwordsMatch =
+    password.length > 0 &&
+    confirmPassword.length > 0 &&
+    password === confirmPassword;
+
+  const handlePasswordChange = (e) => {
+    const value = e.target.value;
+
+    setPassword(value);
+
+    if (confirmPassword && value !== confirmPassword) {
+      setConfirmPasswordError(true);
+    } else {
+      setConfirmPasswordError(false);
+    }
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    const value = e.target.value;
+
+    setConfirmPassword(value);
+
+    if (value !== password) {
+      setConfirmPasswordError(true);
+    } else {
+      setConfirmPasswordError(false);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      setConfirmPasswordError(true);
+      return;
+    }
+
+    setConfirmPasswordError(false);
+
+    const data = Object.fromEntries(
+      new FormData(e.currentTarget).entries()
+    );
+
+    console.log('REGISTER DATA:', data);
+
+    // API CALL HERE
+  };
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#050505] text-white font-oswald tracking-wider">
+    <main className="relative min-h-screen overflow-hidden bg-[#050505] font-oswald tracking-wider text-white">
 
-      {/* ================= BACKGROUND ================= */}
+      {/* =====================================================
+          BACKGROUND GRID
+      ====================================================== */}
 
-      <div
-        className="
-          pointer-events-none absolute inset-0 opacity-[0.035]
-          [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)]
-          [background-size:50px_50px]
-        "
+      <div className="pointer-events-none absolute inset-0 opacity-[0.035] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:50px_50px]" />
+
+      {/* Moving Grid */}
+      <motion.div
+        animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+        className="pointer-events-none absolute -left-40 top-20 h-[500px] w-[500px] rounded-full border border-[#DC2F02]/5"
       />
 
+      {/* Main Glow */}
       <motion.div
         animate={{
-          scale: [1, 1.15, 1],
-          opacity: [0.1, 0.22, 0.1],
+          scale: [1, 1.2, 1],
+          opacity: [0.08, 0.22, 0.08],
         }}
         transition={{
           duration: 5,
           repeat: Infinity,
           ease: 'easeInOut',
         }}
-        className="
-          pointer-events-none absolute left-[20%] top-1/2
-          h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2
-          rounded-full bg-[#DC2F02]/15 blur-[130px]
-        "
+        className="pointer-events-none absolute left-[20%] top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#DC2F02]/15 blur-[130px]"
       />
 
+      {/* Right Glow */}
       <motion.div
         animate={{
           scale: [1, 1.15, 1],
@@ -63,321 +154,84 @@ const Register = () => {
           repeat: Infinity,
           ease: 'easeInOut',
         }}
-        className="
-          pointer-events-none absolute bottom-[-150px] right-[-100px]
-          h-[350px] w-[350px] rounded-full
-          bg-[#DC2F02]/10 blur-[110px]
-        "
+        className="pointer-events-none absolute bottom-[-150px] right-[-100px] h-[350px] w-[350px] rounded-full bg-[#DC2F02]/10 blur-[110px]"
       />
 
-      {/* ================= BACK ================= */}
+      {/* Floating Particles */}
+      {[...Array(18)].map((_, index) => (
+        <motion.span
+          key={index}
+          initial={{
+            opacity: 0,
+            y: 30,
+          }}
+          animate={{
+            opacity: [0, 0.8, 0],
+            y: [-20, -100],
+            x: [0, index % 2 === 0 ? 20 : -20],
+          }}
+          transition={{
+            duration: 3 + (index % 4),
+            repeat: Infinity,
+            delay: index * 0.35,
+            ease: 'easeOut',
+          }}
+          className="pointer-events-none absolute h-1 w-1 rounded-full bg-[#DC2F02]"
+          style={{
+            left: `${5 + index * 5}%`,
+            bottom: `${5 + (index % 5) * 10}%`,
+          }}
+        />
+      ))}
 
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-        className="absolute left-4 top-4 z-50 md:left-7 md:top-7"
+      {/* Back Button */}
+      <Link
+        href="/"
+        className="group absolute left-4 top-4 z-50 flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.035] px-3.5 py-2 text-[11px] font-medium text-gray-400 backdrop-blur-xl transition hover:border-[#DC2F02]/50 hover:bg-[#DC2F02]/10 hover:text-white md:left-7 md:top-7"
       >
-        <Link
-          href="/"
-          className="
-            group flex items-center gap-2 rounded-xl
-            border border-white/10 bg-white/[0.035]
-            px-3.5 py-2 text-[11px] font-medium
-            text-gray-400 backdrop-blur-xl transition-all
-            hover:border-[#DC2F02]/50
-            hover:bg-[#DC2F02]/10 hover:text-white
-          "
-        >
-          <ArrowLeft
-            size={14}
-            className="transition-transform group-hover:-translate-x-1"
-          />
+        <ArrowLeft
+          size={14}
+          className="transition-transform group-hover:-translate-x-1"
+        />
+        Back to Portfolio
+      </Link>
 
-          Back to Portfolio
-        </Link>
-      </motion.div>
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-5 py-14 lg:px-8 lg:py-8">
 
-      {/* ================= MAIN ================= */}
+        <div className="grid w-full items-center gap-8 lg:grid-cols-2 lg:gap-14">
 
-      <div
-        className="
-          relative z-10 mx-auto flex min-h-screen max-w-7xl
-          items-center px-5 py-14 lg:px-8 lg:py-8
-        "
-      >
-        <div
-          className="
-            grid w-full items-center gap-8
-            lg:grid-cols-2 lg:gap-14
-          "
-        >
+          {/* =====================================================
+              LEFT ANIMATION
+          ====================================================== */}
 
-          {/* ================= LEFT PORTAL ================= */}
+          <Animation/>
 
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{
-              duration: 0.8,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="
-              relative hidden h-[430px]
-              items-center justify-center lg:flex
-            "
-          >
-
-            <div
-              className="
-                absolute left-2 top-2 flex items-center gap-2
-                text-[9px] uppercase tracking-[0.3em] text-gray-600
-              "
-            >
-              <Terminal
-                size={12}
-                className="text-[#DC2F02]"
-              />
-
-              Portfolio Control Center
-            </div>
-
-            {/* Portal */}
-
-            <div
-              className="
-                relative flex h-[330px] w-[330px]
-                items-center justify-center
-              "
-            >
-
-              {/* Outer */}
-
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{
-                  duration: 25,
-                  repeat: Infinity,
-                  ease: 'linear',
-                }}
-                className="
-                  absolute inset-0 rounded-full
-                  border border-dashed border-white/10
-                "
-              />
-
-              {/* Orange */}
-
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{
-                  duration: 18,
-                  repeat: Infinity,
-                  ease: 'linear',
-                }}
-                className="
-                  absolute inset-[28px] rounded-full
-                  border border-dashed border-[#DC2F02]/30
-                "
-              />
-
-              {/* Inner */}
-
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{
-                  duration: 12,
-                  repeat: Infinity,
-                  ease: 'linear',
-                }}
-                className="
-                  absolute inset-[60px] rounded-full
-                  border border-[#DC2F02]/20
-                  border-t-[#DC2F02]
-                "
-              />
-
-              {/* Dots */}
-
-              {[0, 60, 120, 180, 240, 300].map(
-                (angle, index) => (
-                  <motion.span
-                    key={index}
-                    animate={{ rotate: 360 }}
-                    transition={{
-                      duration: 8,
-                      delay: index * 0.2,
-                      repeat: Infinity,
-                      ease: 'linear',
-                    }}
-                    style={{
-                      transformOrigin: '165px 165px',
-                      transform: `rotate(${angle}deg)`,
-                    }}
-                    className="
-                      absolute h-1.5 w-1.5 rounded-full
-                      bg-[#DC2F02]
-                      shadow-[0_0_10px_#DC2F02]
-                    "
-                  />
-                )
-              )}
-
-              {/* Glow */}
-
-              <motion.div
-                animate={{
-                  scale: [0.85, 1.1, 0.85],
-                  opacity: [0.25, 0.55, 0.25],
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-                className="
-                  absolute h-[190px] w-[190px]
-                  rounded-full bg-[#DC2F02]/20 blur-[65px]
-                "
-              />
-
-              {/* Center */}
-
-              <motion.div
-                animate={{
-                  scale: [0.97, 1.03, 0.97],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-                className="
-                  relative z-10 flex h-[130px] w-[130px]
-                  items-center justify-center rounded-full
-                  border border-[#DC2F02]/40 bg-[#070707]
-                  shadow-[0_0_50px_rgba(220,47,2,0.18)]
-                "
-              >
-
-                <div
-                  className="
-                    absolute inset-3 rounded-full
-                    border border-white/5
-                  "
-                />
-
-                <div className="text-center">
-
-                  <p className="text-3xl font-black">
-                    <span className="text-[#DC2F02]">
-                      KM
-                    </span>
-                    .
-                  </p>
-
-                  <p
-                    className="
-                      mt-1 text-[7px] uppercase
-                      tracking-[0.35em] text-gray-600
-                    "
-                  >
-                    Admin Portal
-                  </p>
-
-                </div>
-
-              </motion.div>
-
-            </div>
-
-            {/* Left Bottom */}
-
-            <div
-              className="
-                absolute bottom-2 left-2 right-2
-                flex items-center justify-between
-                border-t border-white/5 pt-4
-              "
-            >
-
-              <div>
-                <p className="text-[11px] font-semibold text-gray-300">
-                  Admin Registration
-                </p>
-
-                <p className="mt-1 text-[9px] text-gray-600">
-                  Create your secure portfolio account
-                </p>
-              </div>
-
-              <div
-                className="
-                  flex items-center gap-1.5 rounded-full
-                  border border-green-500/10
-                  bg-green-500/5 px-2.5 py-1
-                "
-              >
-                <span
-                  className="
-                    h-1.5 w-1.5 animate-pulse
-                    rounded-full bg-green-500
-                  "
-                />
-
-                <span className="text-[8px] text-green-500/70">
-                  Secure
-                </span>
-              </div>
-
-            </div>
-
-          </motion.div>
-
-          {/* ================= RIGHT REGISTER ================= */}
+          {/* =====================================================
+              FORM
+          ====================================================== */}
 
           <motion.div
             initial={{ opacity: 0, x: 45 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{
-              duration: 0.75,
-              delay: 0.1,
-              ease: [0.22, 1, 0.36, 1],
-            }}
+            transition={{ duration: 0.7 }}
             className="mx-auto w-full max-w-lg"
           >
 
             {/* Header */}
-
             <div className="mb-4">
 
-              <div
-                className="
-                  mb-2 inline-flex items-center gap-2
-                  rounded-full border border-[#DC2F02]/20
-                  bg-[#DC2F02]/5 px-2.5 py-1
-                "
-              >
+              <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-[#DC2F02]/20 bg-[#DC2F02]/5 px-2.5 py-1">
                 <Sparkles
                   size={11}
                   className="text-[#DC2F02]"
                 />
 
-                <span
-                  className="
-                    text-[8px] font-medium uppercase
-                    tracking-[0.2em] text-[#DC2F02]
-                  "
-                >
+                <span className="text-[8px] uppercase tracking-[0.2em] text-[#DC2F02]">
                   Create Account
                 </span>
               </div>
 
-              <h1
-                className="
-                  text-2xl font-black tracking-tight md:text-3xl
-                "
-              >
+              <h1 className="text-2xl font-black tracking-tight md:text-3xl">
                 Create Account
                 <span className="text-[#DC2F02]">.</span>
               </h1>
@@ -388,45 +242,15 @@ const Register = () => {
 
             </div>
 
-            {/* ================= CARD ================= */}
+            {/* Card */}
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] p-5 shadow-2xl backdrop-blur-2xl md:p-6">
 
-            <div
-              className="
-                relative overflow-hidden rounded-2xl
-                border border-white/10
-                bg-white/[0.035] p-5
-                shadow-2xl backdrop-blur-2xl md:p-6
-              "
-            >
+              <div className="absolute left-1/2 top-0 h-px w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#DC2F02] to-transparent" />
 
-              {/* Top Line */}
+              {/* Security Header */}
+              <div className="mb-4 flex items-center gap-3 rounded-xl border border-white/5 bg-black/20 p-2.5">
 
-              <div
-                className="
-                  absolute left-1/2 top-0 h-px w-2/3
-                  -translate-x-1/2
-                  bg-gradient-to-r from-transparent
-                  via-[#DC2F02] to-transparent
-                "
-              />
-
-              {/* Security */}
-
-              <div
-                className="
-                  mb-4 flex items-center gap-3
-                  rounded-xl border border-white/5
-                  bg-black/20 p-2.5
-                "
-              >
-
-                <div
-                  className="
-                    flex h-9 w-9 shrink-0 items-center
-                    justify-center rounded-lg
-                    bg-[#DC2F02]/10 text-[#DC2F02]
-                  "
-                >
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#DC2F02]/10 text-[#DC2F02]">
                   <ShieldCheck size={17} />
                 </div>
 
@@ -436,7 +260,7 @@ const Register = () => {
                     Secure Registration
                   </p>
 
-                  <p className="mt-0.5 text-[9px] text-gray-600">
+                  <p className="text-[9px] text-gray-600">
                     Authorized portfolio administration
                   </p>
 
@@ -449,160 +273,54 @@ const Register = () => {
 
               </div>
 
-              {/* ================= FORM ================= */}
+              {/* FORM */}
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-3.5"
+              >
 
-              <form className="space-y-3.5">
-
-                {/* ROW 1 */}
-
+                {/* Row 1 */}
                 <div className="grid gap-3 sm:grid-cols-2">
 
-                  {/* NAME */}
+                  <InputField
+                    id="name"
+                    name="name"
+                    label="Full Name"
+                    placeholder="Md. Khalekuzzaman"
+                    icon={User}
+                    required
+                  />
 
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="
-                        mb-1.5 block text-[10px]
-                        font-medium text-gray-400
-                      "
-                    >
-                      Full Name
-                    </label>
-
-                    <div className="group relative">
-
-                      <User
-                        size={15}
-                        className="
-                          absolute left-3.5 top-1/2 z-10
-                          -translate-y-1/2 text-gray-600
-                          transition group-focus-within:text-[#DC2F02]
-                        "
-                      />
-
-                      <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        placeholder="Md. Khalekuzzaman"
-                        required
-                        className="
-                          h-10.5 w-full rounded-xl
-                          border border-white/10
-                          bg-black/25 pl-10 pr-3
-                          text-xs text-white outline-none
-                          transition placeholder:text-gray-700
-                          focus:border-[#DC2F02]/50
-                          focus:ring-4 focus:ring-[#DC2F02]/5
-                        "
-                      />
-
-                    </div>
-                  </div>
-
-                  {/* IMAGE URL */}
-
-                  <div>
-                    <label
-                      htmlFor="imageUrl"
-                      className="
-                        mb-1.5 block text-[10px]
-                        font-medium text-gray-400
-                      "
-                    >
-                      Profile Image URL
-                    </label>
-
-                    <div className="group relative">
-
-                      <User
-                        size={15}
-                        className="
-                          absolute left-3.5 top-1/2 z-10
-                          -translate-y-1/2 text-gray-600
-                          transition group-focus-within:text-[#DC2F02]
-                        "
-                      />
-
-                      <input
-                        id="imageUrl"
-                        name="imageUrl"
-                        type="url"
-                        placeholder="https://..."
-                        className="
-                          h-10.5 w-full rounded-xl
-                          border border-white/10
-                          bg-black/25 pl-10 pr-3
-                          text-xs text-white outline-none
-                          transition placeholder:text-gray-700
-                          focus:border-[#DC2F02]/50
-                          focus:ring-4 focus:ring-[#DC2F02]/5
-                        "
-                      />
-
-                    </div>
-                  </div>
+                  <InputField
+                    id="imageUrl"
+                    name="imageUrl"
+                    label="Profile Image URL"
+                    type="url"
+                    placeholder="https://..."
+                    icon={User}
+                  />
 
                 </div>
 
-                {/* ROW 2 */}
-
+                {/* Row 2 */}
                 <div className="grid gap-3 sm:grid-cols-2">
 
-                  {/* EMAIL */}
+                  <InputField
+                    id="email"
+                    name="email"
+                    label="Email Address"
+                    type="email"
+                    placeholder="admin@example.com"
+                    icon={Mail}
+                    required
+                  />
 
+                  {/* Role */}
                   <div>
-                    <label
-                      htmlFor="email"
-                      className="
-                        mb-1.5 block text-[10px]
-                        font-medium text-gray-400
-                      "
-                    >
-                      Email Address
-                    </label>
 
-                    <div className="group relative">
-
-                      <Mail
-                        size={15}
-                        className="
-                          absolute left-3.5 top-1/2 z-10
-                          -translate-y-1/2 text-gray-600
-                          transition group-focus-within:text-[#DC2F02]
-                        "
-                      />
-
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="admin@example.com"
-                        required
-                        className="
-                          h-10.5 w-full rounded-xl
-                          border border-white/10
-                          bg-black/25 pl-10 pr-3
-                          text-xs text-white outline-none
-                          transition placeholder:text-gray-700
-                          focus:border-[#DC2F02]/50
-                          focus:ring-4 focus:ring-[#DC2F02]/5
-                        "
-                      />
-
-                    </div>
-                  </div>
-
-                  {/* ROLE */}
-
-                  <div>
                     <label
                       htmlFor="role"
-                      className="
-                        mb-1.5 block text-[10px]
-                        font-medium text-gray-400
-                      "
+                      className="mb-1.5 block text-[10px] font-medium text-gray-400"
                     >
                       Role
                     </label>
@@ -611,24 +329,14 @@ const Register = () => {
 
                       <ShieldCheck
                         size={15}
-                        className="
-                          absolute left-3.5 top-1/2 z-10
-                          -translate-y-1/2 text-[#DC2F02]
-                        "
+                        className="absolute left-3.5 top-1/2 z-10 -translate-y-1/2 text-[#DC2F02]"
                       />
 
                       <select
                         id="role"
                         name="role"
-                        value="admin"
-                        disabled
-                        className="
-                          h-10.5 w-full appearance-none
-                          rounded-xl border border-[#DC2F02]/20
-                          bg-black/30 pl-10 pr-8
-                          text-xs font-medium text-[#DC2F02]
-                          outline-none opacity-100
-                        "
+                        defaultValue="admin"
+                        className="h-10.5 w-full appearance-none rounded-xl border border-[#DC2F02]/20 bg-black/30 pl-10 pr-8 text-xs font-medium text-[#DC2F02] outline-none"
                       >
                         <option
                           value="admin"
@@ -638,145 +346,88 @@ const Register = () => {
                         </option>
                       </select>
 
-                      <span
-                        className="
-                          pointer-events-none absolute
-                          right-3 top-1/2
-                          -translate-y-1/2 text-[8px]
-                          text-gray-600
-                        "
-                      >
+                      <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[8px] text-gray-600">
                         ADMIN
                       </span>
 
                     </div>
+
                   </div>
 
                 </div>
 
-                {/* ROW 3 */}
-
+                {/* Password Row */}
                 <div className="grid gap-3 sm:grid-cols-2">
 
-                  {/* PASSWORD */}
+                  {/* Password */}
+                  <div className="relative">
 
-                  <div>
-                    <label
-                      htmlFor="password"
-                      className="
-                        mb-1.5 block text-[10px]
-                        font-medium text-gray-400
-                      "
+                    <InputField
+                      id="password"
+                      name="password"
+                      label="Password"
+                      type={
+                        showPassword
+                          ? 'text'
+                          : 'password'
+                      }
+                      placeholder="••••••••"
+                      icon={Lock}
+                      required
+                      value={password}
+                      onChange={handlePasswordChange}
+                    />
+
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setShowPassword(
+                          !showPassword
+                        )
+                      }
+                      className="absolute right-3 top-[29px] text-gray-500 transition hover:text-white"
                     >
-                      Password
-                    </label>
+                      {showPassword ? (
+                        <EyeOff size={15} />
+                      ) : (
+                        <Eye size={15} />
+                      )}
+                    </button>
 
-                    <div className="group relative">
-
-                      <Lock
-                        size={15}
-                        className="
-                          absolute left-3.5 top-1/2 z-10
-                          -translate-y-1/2 text-gray-600
-                          transition group-focus-within:text-[#DC2F02]
-                        "
-                      />
-
-                      <input
-                        id="password"
-                        name="password"
-                        type={showPassword ? 'text' : 'password'}
-                        placeholder="••••••••"
-                        required
-                        className="
-                          h-10.5 w-full rounded-xl
-                          border border-white/10
-                          bg-black/25 pl-10 pr-10
-                          text-xs text-white outline-none
-                          transition placeholder:text-gray-700
-                          focus:border-[#DC2F02]/50
-                          focus:ring-4 focus:ring-[#DC2F02]/5
-                        "
-                      />
-
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setShowPassword((prev) => !prev)
-                        }
-                        className="
-                          absolute right-3 top-1/2
-                          -translate-y-1/2 text-gray-600
-                          transition hover:text-gray-300
-                        "
-                      >
-                        {showPassword ? (
-                          <EyeOff size={15} />
-                        ) : (
-                          <Eye size={15} />
-                        )}
-                      </button>
-
-                    </div>
                   </div>
 
-                  {/* CONFIRM PASSWORD */}
-
+                  {/* Confirm Password */}
                   <div>
-                    <label
-                      htmlFor="confirmPassword"
-                      className="
-                        mb-1.5 block text-[10px]
-                        font-medium text-gray-400
-                      "
-                    >
-                      Confirm Password
-                    </label>
 
-                    <div className="group relative">
+                    <div className="relative">
 
-                      <Lock
-                        size={15}
-                        className="
-                          absolute left-3.5 top-1/2 z-10
-                          -translate-y-1/2 text-gray-600
-                          transition group-focus-within:text-[#DC2F02]
-                        "
-                      />
-
-                      <input
+                      <InputField
                         id="confirmPassword"
                         name="confirmPassword"
+                        label="Confirm Password"
                         type={
                           showConfirmPassword
                             ? 'text'
                             : 'password'
                         }
                         placeholder="••••••••"
+                        icon={Lock}
                         required
-                        className="
-                          h-10.5 w-full rounded-xl
-                          border border-white/10
-                          bg-black/25 pl-10 pr-10
-                          text-xs text-white outline-none
-                          transition placeholder:text-gray-700
-                          focus:border-[#DC2F02]/50
-                          focus:ring-4 focus:ring-[#DC2F02]/5
-                        "
+                        error={confirmPasswordError}
+                        value={confirmPassword}
+                        onChange={
+                          handleConfirmPasswordChange
+                        }
                       />
 
                       <button
                         type="button"
                         onClick={() =>
                           setShowConfirmPassword(
-                            (prev) => !prev
+                            !showConfirmPassword
                           )
                         }
-                        className="
-                          absolute right-3 top-1/2
-                          -translate-y-1/2 text-gray-600
-                          transition hover:text-gray-300
-                        "
+                        className="absolute right-3 top-[29px] text-gray-500 transition hover:text-white"
                       >
                         {showConfirmPassword ? (
                           <EyeOff size={15} />
@@ -786,25 +437,59 @@ const Register = () => {
                       </button>
 
                     </div>
+
+                    {/* Error */}
+                    {confirmPasswordError && (
+                      <motion.p
+                        initial={{
+                          opacity: 0,
+                          y: -4,
+                        }}
+                        animate={{
+                          opacity: 1,
+                          y: 0,
+                        }}
+                        className="mt-1 text-[10px] font-medium text-red-500"
+                      >
+                        Passwords do not match!
+                      </motion.p>
+                    )}
+
+                    {/* Success */}
+                    {passwordsMatch && (
+                      <motion.p
+                        initial={{
+                          opacity: 0,
+                          y: -4,
+                        }}
+                        animate={{
+                          opacity: 1,
+                          y: 0,
+                        }}
+                        className="mt-1 flex items-center gap-1 text-[10px] font-medium text-green-500"
+                      >
+                        <CircleCheck size={10} />
+                        Passwords match
+                      </motion.p>
+                    )}
+
                   </div>
 
                 </div>
 
-                {/* TERMS */}
-
+                {/* Terms */}
                 <label
-                  className="
-                    flex cursor-pointer items-start gap-2
-                    pt-0.5 text-[9px] leading-4 text-gray-500
-                  "
+                  htmlFor="terms"
+                  className="flex cursor-pointer items-start gap-2 text-[9px] leading-4 text-gray-500"
                 >
+
                   <input
+                    id="terms"
+                    name="terms"
                     type="checkbox"
+                    value="accepted"
                     required
-                    className="
-                      mt-0.5 h-3 w-3 shrink-0
-                      cursor-pointer accent-[#DC2F02]
-                    "
+                    className="mt-0.5 h-3 w-3 accent-[#DC2F02]"
                   />
 
                   <span>
@@ -814,36 +499,32 @@ const Register = () => {
                     </span>{' '}
                     and privacy policy.
                   </span>
+
                 </label>
 
-                {/* BUTTON */}
-
+                {/* Submit Button */}
                 <motion.button
-                  whileHover={{ scale: 1.015 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{
+                    scale: 1.015,
+                  }}
+                  whileTap={{
+                    scale: 0.98,
+                  }}
                   type="submit"
-                  className="
-                    group relative flex h-11 w-full
-                    items-center justify-center gap-2
-                    overflow-hidden rounded-xl
-                    bg-[#DC2F02] text-xs font-bold text-white
-                    shadow-[0_0_25px_rgba(220,47,2,0.18)]
-                    transition hover:bg-[#ef3b0a]
-                    hover:shadow-[0_0_35px_rgba(220,47,2,0.3)]
-                  "
+                  className="group relative flex h-11 w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-[#DC2F02] text-xs font-bold shadow-[0_0_25px_rgba(220,47,2,0.18)] transition hover:bg-[#ef3b0a]"
                 >
 
+                  {/* Button Shine */}
                   <motion.span
-                    animate={{ x: ['-120%', '120%'] }}
+                    animate={{
+                      x: ['-150%', '150%'],
+                    }}
                     transition={{
                       duration: 2.5,
                       repeat: Infinity,
                       ease: 'linear',
                     }}
-                    className="
-                      absolute inset-y-0 w-16
-                      rotate-12 bg-white/10 blur-md
-                    "
+                    className="absolute inset-y-0 w-20 skew-x-[-20deg] bg-white/10 blur-md"
                   />
 
                   <span className="relative z-10">
@@ -852,25 +533,15 @@ const Register = () => {
 
                   <ArrowRight
                     size={15}
-                    className="
-                      relative z-10
-                      transition-transform
-                      group-hover:translate-x-1
-                    "
+                    className="relative z-10 transition-transform group-hover:translate-x-1"
                   />
 
                 </motion.button>
 
               </form>
 
-              {/* LOGIN */}
-
-              <div
-                className="
-                  mt-4 border-t border-white/5
-                  pt-4 text-center
-                "
-              >
+              {/* Login */}
+              <div className="mt-4 border-t border-white/5 pt-4 text-center">
 
                 <p className="text-[9px] text-gray-600">
                   Already have an account?
@@ -878,11 +549,7 @@ const Register = () => {
 
                 <Link
                   href="/auth/login"
-                  className="
-                    mt-1 inline-flex items-center gap-1
-                    text-[10px] font-medium text-[#DC2F02]
-                    transition hover:text-[#ef3b0a]
-                  "
+                  className="mt-1 inline-flex items-center gap-1 text-[10px] font-medium text-[#DC2F02] transition hover:text-[#ef3b0a]"
                 >
                   Continue to Login
                   <ArrowRight size={11} />
@@ -892,23 +559,20 @@ const Register = () => {
 
             </div>
 
-            {/* COPYRIGHT */}
-
-            <p
-              className="
-                mt-3 text-center text-[8px]
-                tracking-wide text-gray-700
-              "
-            >
+            {/* Footer */}
+            <p className="mt-3 text-center text-[8px] tracking-wide text-gray-700">
               © {new Date().getFullYear()} Md. Khalekuzzaman
-              <span className="mx-2 text-[#DC2F02]/40">•</span>
+
+              <span className="mx-2 text-[#DC2F02]/40">
+                •
+              </span>
+
               Portfolio Admin
             </p>
 
           </motion.div>
 
         </div>
-
       </div>
     </main>
   );
