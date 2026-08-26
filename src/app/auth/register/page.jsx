@@ -7,6 +7,7 @@ import {
   User,Mail,Lock,Eye,EyeOff,ArrowRight,ArrowLeft,ShieldCheck,CircleCheck,Sparkles,
 } from 'lucide-react';
 import Animation from '@/Components/Home/Animation';
+import { authClient } from '@/lib/auth-client';
 
 const InputField = ({
   id,
@@ -89,8 +90,8 @@ const Register = () => {
       setConfirmPasswordError(false);
     }
   };
-
-  const handleSubmit = (e) => {
+// better auth validation
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
@@ -100,13 +101,26 @@ const Register = () => {
 
     setConfirmPasswordError(false);
 
-    const data = Object.fromEntries(
+    const alldata = Object.fromEntries(
       new FormData(e.currentTarget).entries()
     );
 
-    console.log('REGISTER DATA:', data);
+    try {
+      const { data, error } = await authClient.signUp.email({
+        name: alldata.name,
+        email: alldata.email,
+        password: alldata.password,
+      });
 
-    // API CALL HERE
+      if (error) {
+        console.log(error);
+        return;
+      }
+
+      console.log("Registration successful:", data);
+    } catch (error) {
+      console.error("Registration failed:", error);
+    }
   };
 
   return (

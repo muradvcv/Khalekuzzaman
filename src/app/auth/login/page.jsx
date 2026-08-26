@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import {
   Lock,
@@ -20,6 +20,13 @@ import Animation from '@/Components/Home/Animation';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [year, setYear] = useState(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setYear(new Date().getFullYear()), 0);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#050505] text-white font-oswald tracking-wider">
@@ -678,7 +685,7 @@ const Login = () => {
                 text-gray-700
               "
             >
-              © {new Date().getFullYear()} Md. Khalekuzzaman
+              © {year ?? ''} Md. Khalekuzzaman
 
               <span className="mx-2 text-[#DC2F02]/40">
                 •

@@ -87,40 +87,31 @@ const particles = [
 const TechAnimation = () => {
   return (
     <div className="relative mx-auto flex h-[500px] w-full max-w-[600px] items-center justify-center overflow-hidden sm:h-[550px]">
-      {/* SVG Background */}
       <motion.svg
         viewBox="0 0 600 550"
         className="absolute inset-0 h-full w-full"
         preserveAspectRatio="xMidYMid meet"
       >
         <defs>
-          {/* Glow */}
           <filter id="techGlow">
-            <feGaussianBlur
-              stdDeviation="5"
-              result="coloredBlur"
-            />
-
+            <feGaussianBlur stdDeviation="5" result="coloredBlur" />
             <feMerge>
               <feMergeNode in="coloredBlur" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
 
-          {/* Center Gradient */}
           <radialGradient id="centerGradient">
             <stop
               offset="0%"
               stopColor="#DC2F02"
               stopOpacity="0.45"
             />
-
             <stop
               offset="50%"
               stopColor="#DC2F02"
               stopOpacity="0.12"
             />
-
             <stop
               offset="100%"
               stopColor="#DC2F02"
@@ -128,7 +119,6 @@ const TechAnimation = () => {
             />
           </radialGradient>
 
-          {/* Line Gradient */}
           <linearGradient
             id="lineGradient"
             x1="0%"
@@ -141,13 +131,11 @@ const TechAnimation = () => {
               stopColor="#DC2F02"
               stopOpacity="0.1"
             />
-
             <stop
               offset="50%"
               stopColor="#DC2F02"
               stopOpacity="0.9"
             />
-
             <stop
               offset="100%"
               stopColor="#DC2F02"
@@ -156,7 +144,7 @@ const TechAnimation = () => {
           </linearGradient>
         </defs>
 
-        {/* Main Red Glow */}
+        {/* Main Glow */}
         <motion.circle
           cx="300"
           cy="275"
@@ -173,7 +161,7 @@ const TechAnimation = () => {
           }}
         />
 
-        {/* Outer Dotted Circle */}
+        {/* Outer Circle */}
         <motion.circle
           cx="300"
           cy="275"
@@ -219,7 +207,7 @@ const TechAnimation = () => {
           }}
         />
 
-        {/* Decorative Technology Network */}
+        {/* Technology Network */}
         <motion.g
           animate={{
             rotate: [0, 2, 0, -2, 0],
@@ -233,19 +221,9 @@ const TechAnimation = () => {
             transformOrigin: '300px 275px',
           }}
         >
-          {/* Main Network */}
+          {/* FIXED MAIN PATH */}
           <motion.path
-            d="
-              M105 275
-              L145 145
-              L275 90
-              L425 145
-              L490 275
-              L425 405
-              L300 455
-              L175 405
-              Z
-            "
+            d="M105 275 L145 145 L275 90 L425 145 L490 275 L425 405 L300 455 L175 405 Z"
             fill="none"
             stroke="url(#lineGradient)"
             strokeWidth="1.5"
@@ -260,7 +238,6 @@ const TechAnimation = () => {
             }}
           />
 
-          {/* MongoDB → Center → Express */}
           <path
             d="M105 275 L300 275 L145 145"
             fill="none"
@@ -269,7 +246,6 @@ const TechAnimation = () => {
             opacity="0.35"
           />
 
-          {/* Express → Center → Tailwind */}
           <path
             d="M145 145 L300 275 L275 90"
             fill="none"
@@ -278,7 +254,6 @@ const TechAnimation = () => {
             opacity="0.3"
           />
 
-          {/* Tailwind → Center → Node */}
           <path
             d="M275 90 L300 275 L425 145"
             fill="none"
@@ -287,7 +262,6 @@ const TechAnimation = () => {
             opacity="0.3"
           />
 
-          {/* Node → Center → Next */}
           <path
             d="M425 145 L300 275 L490 275"
             fill="none"
@@ -296,7 +270,6 @@ const TechAnimation = () => {
             opacity="0.3"
           />
 
-          {/* Next → Center → JavaScript */}
           <path
             d="M490 275 L300 275 L425 405"
             fill="none"
@@ -305,7 +278,6 @@ const TechAnimation = () => {
             opacity="0.3"
           />
 
-          {/* JavaScript → Center → React */}
           <path
             d="M425 405 L300 275 L300 455"
             fill="none"
@@ -314,7 +286,6 @@ const TechAnimation = () => {
             opacity="0.3"
           />
 
-          {/* React → Center → TypeScript */}
           <path
             d="M300 455 L300 275 L175 405"
             fill="none"
@@ -323,7 +294,6 @@ const TechAnimation = () => {
             opacity="0.3"
           />
 
-          {/* TypeScript → Center → MongoDB */}
           <path
             d="M175 405 L300 275 L105 275"
             fill="none"
@@ -352,7 +322,6 @@ const TechAnimation = () => {
           }}
         />
 
-        {/* Center Rings */}
         <circle
           cx="300"
           cy="275"
@@ -374,7 +343,7 @@ const TechAnimation = () => {
         {/* Particles */}
         {particles.map((particle, index) => (
           <motion.circle
-            key={index}
+            key={`${particle.x}-${particle.y}-${index}`}
             cx={particle.x}
             cy={particle.y}
             r={particle.size}
@@ -404,23 +373,14 @@ const TechAnimation = () => {
           repeat: Infinity,
           ease: 'easeInOut',
         }}
-        className="
-          absolute z-20
-          flex h-28 w-28
-          items-center justify-center
-          rounded-full
-          border border-[#DC2F02]/50
-          bg-[#080808]/90
-          shadow-[0_0_50px_rgba(220,47,2,0.25)]
-          backdrop-blur-md
-        "
+        className="absolute z-20 flex h-28 w-28 items-center justify-center rounded-full border border-[#DC2F02]/50 bg-[#080808]/90 shadow-[0_0_50px_rgba(220,47,2,0.25)] backdrop-blur-md"
       >
         <span className="bg-gradient-to-br from-white to-[#DC2F02] bg-clip-text text-3xl font-black tracking-wider text-transparent">
-        MERN
+          MERN
         </span>
       </motion.div>
 
-      {/* Floating Technology Nodes */}
+      {/* Technology Nodes */}
       {nodes.map(({ Icon, x, y, color, name }, index) => (
         <motion.div
           key={name}
@@ -456,55 +416,14 @@ const TechAnimation = () => {
             left: `${(x / 600) * 100}%`,
             top: `${(y / 550) * 100}%`,
           }}
-          className="
-            group
-            absolute z-30
-            flex h-14 w-14
-            -translate-x-1/2
-            -translate-y-1/2
-            cursor-pointer
-            items-center justify-center
-            rounded-2xl
-            border border-white/10
-            bg-[#111]/90
-            shadow-[0_0_25px_rgba(220,47,2,0.12)]
-            backdrop-blur-md
-            transition-colors
-            hover:border-[#DC2F02]/70
-            hover:bg-[#DC2F02]/10
-            sm:h-16
-            sm:w-16
-          "
+          className="group absolute z-30 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-2xl border border-white/10 bg-[#111]/90 shadow-[0_0_25px_rgba(220,47,2,0.12)] backdrop-blur-md transition-colors hover:border-[#DC2F02]/70 hover:bg-[#DC2F02]/10 sm:h-16 sm:w-16"
         >
           <Icon
             className="h-6 w-6 sm:h-8 sm:w-8"
             style={{ color }}
           />
 
-          {/* Tooltip */}
-          <div
-            className="
-              pointer-events-none
-              absolute
-              -bottom-9
-              left-1/2
-              z-50
-              -translate-x-1/2
-              whitespace-nowrap
-              rounded-md
-              border border-white/10
-              bg-[#111]
-              px-2
-              py-1
-              text-[10px]
-              text-gray-300
-              opacity-0
-              shadow-lg
-              transition-opacity
-              duration-200
-              group-hover:opacity-100
-            "
-          >
+          <div className="pointer-events-none absolute -bottom-9 left-1/2 z-50 -translate-x-1/2 whitespace-nowrap rounded-md border border-white/10 bg-[#111] px-2 py-1 text-[10px] text-gray-300 opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100">
             {name}
           </div>
         </motion.div>
@@ -520,28 +439,10 @@ const TechAnimation = () => {
           repeat: Infinity,
           ease: 'easeInOut',
         }}
-        className="
-          absolute
-          right-[7%]
-          top-[7%]
-          z-40
-          flex
-          items-center
-          gap-2
-          rounded-full
-          border border-green-400/30
-          bg-green-400/10
-          px-3
-          py-1.5
-          text-xs
-          font-medium
-          text-green-400
-          backdrop-blur-md
-        "
+        className="absolute right-[7%] top-[7%] z-40 flex items-center gap-2 rounded-full border border-green-400/30 bg-green-400/10 px-3 py-1.5 text-xs font-medium text-green-400 backdrop-blur-md"
       >
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-
           <span className="relative inline-flex h-2 w-2 rounded-full bg-green-400" />
         </span>
 

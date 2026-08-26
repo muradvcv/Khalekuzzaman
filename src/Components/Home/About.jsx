@@ -52,11 +52,7 @@ const About = () => {
         <div className="absolute bottom-[5%] right-[-180px] h-[400px] w-[400px] rounded-full bg-[#DC2F02]/10 blur-[130px]" />
 
         <div
-          className="
-            absolute inset-0 opacity-[0.025]
-            [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)]
-            [background-size:50px_50px]
-          "
+          className="absolute inset-0 opacity-[0.025] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:50px_50px]"
         />
       </div>
 
@@ -109,24 +105,12 @@ const About = () => {
             <div className="absolute -inset-1 rounded-[28px] bg-[#DC2F02]/10 blur-2xl" />
 
             <div
-              className="
-                relative flex h-full min-h-[440px] flex-col
-                overflow-hidden rounded-[28px]
-                border border-[#DC2F02]/20
-                bg-[#0d1210]
-                shadow-[0_25px_80px_rgba(0,0,0,0.45)]
-              "
+              className="relative flex h-full min-h-[440px] flex-col overflow-hidden rounded-[28px] border border-[#DC2F02]/20 bg-[#0d1210] shadow-[0_25px_80px_rgba(0,0,0,0.45)]"
             >
               {/* Terminal Header */}
 
               <div
-                className="
-                  flex items-center justify-between
-                  border-b border-white/10
-                  bg-[#111713]
-                  px-4 py-3
-                  sm:px-5
-                "
+                className="flex items-center justify-between border-b border-white/10 bg-[#111713] px-4 py-3 sm:px-5"
               >
                 <div className="flex min-w-0 items-center gap-3">
                   <div className="flex shrink-0 gap-1.5">
@@ -335,16 +319,7 @@ const About = () => {
                       delay: index * 0.1,
                     }}
                     whileHover={{ y: -5 }}
-                    className="
-                    rounded-2xl
-                    border border-white/10
-                    bg-white/[0.03]
-                    p-3 text-center
-                    transition
-                    hover:border-[#DC2F02]/40
-                    hover:bg-[#DC2F02]/5
-                    sm:p-4
-                  "
+                    className="rounded-2xl border border-white/10 bg-white/[0.03] p-3 text-center transition hover:border-[#DC2F02]/40 hover:bg-[#DC2F02]/5 sm:p-4"
                   >
                     <h4 className="text-lg font-black text-[#DC2F02] sm:text-xl md:text-2xl">
                       {stat.value}
@@ -387,17 +362,7 @@ const About = () => {
                       delay: index * 0.05,
                     }}
                     whileHover={{ y: -3 }}
-                    className="
-                      rounded-lg
-                      border border-white/10
-                      bg-[#111512]
-                      px-3 py-2
-                      text-xs text-gray-300
-                      transition
-                      hover:border-[#DC2F02]/50
-                      hover:bg-[#DC2F02]/10
-                      hover:text-white
-                    "
+                    className="rounded-lg border border-white/10 bg-[#111512] px-3 py-2 text-xs text-gray-300 transition hover:border-[#DC2F02]/50 hover:bg-[#DC2F02]/10 hover:text-white"
                   >
                     {tech}
                   </motion.span>
@@ -434,27 +399,12 @@ const About = () => {
           {/* ================= LOCATION CARD ================= */}
 
           <div
-            className="
-              grid
-              min-h-[300px]
-              overflow-hidden
-              rounded-[24px]
-              border border-white/10
-              bg-[#0d1210]
-              shadow-[0_20px_60px_rgba(0,0,0,0.35)]
-              lg:grid-cols-[0.75fr_1.25fr]
-            "
+            className="grid min-h-[300px] overflow-hidden rounded-[24px] border border-white/10 bg-[#0d1210] shadow-[0_20px_60px_rgba(0,0,0,0.35)] lg:grid-cols-[0.75fr_1.25fr]"
           >
             {/* ================= LOCATION INFO ================= */}
 
             <div
-              className="
-                relative
-                flex flex-col justify-center
-                p-5
-                sm:p-6
-                md:p-7
-              "
+              className="relative flex flex-col justify-center p-5 sm:p-6 md:p-7"
             >
               {/* Left Accent Line */}
 
@@ -516,26 +466,7 @@ const About = () => {
                       href="https://bdcalling.com/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="
-                        group
-                        inline-flex
-                        items-center
-                        gap-1
-                        rounded-md
-                        border border-[#DC2F02]/50
-                        bg-[#DC2F02]/10
-                        px-2 py-0.5
-                        font-bold
-                        text-[#ff5a2f]
-                        shadow-[0_0_10px_rgba(220,47,2,0.12)]
-                        transition-all
-                        duration-300
-                        hover:-translate-y-0.5
-                        hover:border-[#DC2F02]
-                        hover:bg-[#DC2F02]/20
-                        hover:text-white
-                        hover:shadow-[0_0_16px_rgba(220,47,2,0.3)]
-                      "
+                      className="group inline-flex items-center gap-1 rounded-md border border-[#DC2F02]/50 bg-[#DC2F02]/10 px-2 py-0.5 font-bold text-[#ff5a2f] shadow-[0_0_10px_rgba(220,47,2,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#DC2F02] hover:bg-[#DC2F02]/20 hover:text-white hover:shadow-[0_0_16px_rgba(220,47,2,0.3)]"
                     >
                       <span>
                         BD Calling
@@ -544,12 +475,7 @@ const About = () => {
                       <ExternalLink
                         size={10}
                         strokeWidth={2.5}
-                        className="
-                          transition-all
-                          duration-300
-                          group-hover:translate-x-0.5
-                          group-hover:-translate-y-0.5
-                        "
+                        className="transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                       />
                     </Link>
                   </p>
@@ -562,37 +488,13 @@ const About = () => {
                 href="https://www.google.com/maps/search/?api=1&query=Banasree%2C%20Dhaka%2C%20Bangladesh"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="
-                  group
-                  mt-3
-                  inline-flex
-                  w-fit
-                  items-center
-                  gap-2
-                  rounded-lg
-                  border border-[#DC2F02]/40
-                  bg-[#DC2F02]/10
-                  px-3.5
-                  py-2
-                  text-xs
-                  font-semibold
-                  transition
-                  duration-300
-                  hover:border-[#DC2F02]
-                  hover:bg-[#DC2F02]
-                  hover:shadow-[0_0_20px_rgba(220,47,2,0.2)]
-                "
+                className="group mt-3 inline-flex w-fit items-center gap-2 rounded-lg border border-[#DC2F02]/40 bg-[#DC2F02]/10 px-3.5 py-2 text-xs font-semibold transition duration-300 hover:border-[#DC2F02] hover:bg-[#DC2F02] hover:shadow-[0_0_20px_rgba(220,47,2,0.2)]"
               >
                 Open in Google Maps
 
                 <ExternalLink
                   size={13}
-                  className="
-                    transition
-                    duration-300
-                    group-hover:translate-x-1
-                    group-hover:-translate-y-0.5
-                  "
+                  className="transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5"
                 />
               </a>
             </div>
@@ -600,27 +502,12 @@ const About = () => {
             {/* ================= GOOGLE MAP ================= */}
 
             <div
-              className="
-                relative
-                min-h-[260px]
-                border-t
-                border-white/10
-                lg:min-h-[300px]
-                lg:border-l
-                lg:border-t-0
-              "
+              className="relative min-h-[260px] border-t border-white/10 lg:min-h-[300px] lg:border-l lg:border-t-0"
             >
               <iframe
                 title="Banasree Dhaka Map"
                 src="https://www.google.com/maps?q=Banasree%2C%20Dhaka%2C%20Bangladesh&output=embed"
-                className="
-                  absolute
-                  inset-0
-                  h-full
-                  w-full
-                  grayscale-[0.25]
-                  opacity-80
-                "
+                className="absolute inset-0 h-full w-full grayscale-[0.25] opacity-80"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
@@ -628,36 +515,13 @@ const About = () => {
               {/* Map Overlay */}
 
               <div
-                className="
-                  pointer-events-none
-                  absolute
-                  inset-0
-                  bg-gradient-to-r
-                  from-[#0a100d]/30
-                  via-transparent
-                  to-transparent
-                "
+                className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0a100d]/30 via-transparent to-transparent"
               />
 
               {/* ================= MAP LABEL ================= */}
 
               <div
-                className="
-                  absolute
-                  bottom-4
-                  left-4
-                  flex
-                  items-center
-                  gap-2.5
-                  rounded-lg
-                  border
-                  border-white/10
-                  bg-[#0a100d]/90
-                  px-3
-                  py-2.5
-                  shadow-xl
-                  backdrop-blur-md
-                "
+                className="absolute bottom-4 left-4 flex items-center gap-2.5 rounded-lg border border-white/10 bg-[#0a100d]/90 px-3 py-2.5 shadow-xl backdrop-blur-md"
               >
                 <MapPin
                   size={16}
@@ -689,17 +553,7 @@ const About = () => {
         >
           <Link
             href="#contact"
-            className="
-              group inline-flex items-center gap-2
-              rounded-xl
-              bg-[#DC2F02]
-              px-6 py-3
-              text-sm font-semibold
-              shadow-[0_0_30px_rgba(220,47,2,0.15)]
-              transition
-              hover:bg-[#ef3b0a]
-              hover:shadow-[0_0_40px_rgba(220,47,2,0.3)]
-            "
+            className="group inline-flex items-center gap-2 rounded-xl bg-[#DC2F02] px-6 py-3 text-sm font-semibold shadow-[0_0_30px_rgba(220,47,2,0.15)] transition hover:bg-[#ef3b0a] hover:shadow-[0_0_40px_rgba(220,47,2,0.3)]"
           >
             Let&apos;s Work Together
 
@@ -717,13 +571,7 @@ const About = () => {
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="
-            mx-auto mt-14 h-px max-w-5xl origin-center
-            bg-gradient-to-r
-            from-transparent
-            via-[#DC2F02]/40
-            to-transparent
-          "
+          className="mx-auto mt-14 h-px max-w-5xl origin-center bg-gradient-to-r from-transparent via-[#DC2F02]/40 to-transparent"
         />
       </div>
     </section>

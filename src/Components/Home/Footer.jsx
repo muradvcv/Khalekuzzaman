@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
@@ -27,7 +27,13 @@ import {
 } from 'react-icons/md';
 
 const Foooter = () => {
-  const year = new Date().getFullYear();
+  const [year, setYear] = useState(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setYear(new Date().getFullYear()), 0);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const navItems = [
     ['Home', '#home'],
@@ -79,11 +85,7 @@ const Foooter = () => {
         <div className="absolute -right-40 top-20 h-80 w-80 rounded-full bg-orange-500/5 blur-[120px]" />
 
         <div
-          className="
-            absolute inset-0 opacity-[0.025]
-            [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)]
-            [background-size:55px_55px]
-          "
+          className="absolute inset-0 opacity-[0.025] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:55px_55px]"
         />
       </div>
 
@@ -106,12 +108,7 @@ const Foooter = () => {
             <Link href="#home" className="group inline-flex items-center gap-3">
               <motion.div
                 whileHover={{ y: -5, rotate: -5, scale: 1.05 }}
-                className="
-                  flex h-12 w-12 items-center justify-center
-                  rounded-2xl border border-orange-500/20
-                  bg-orange-500/10
-                  shadow-[0_0_30px_rgba(249,115,22,.08)]
-                "
+                className="flex h-12 w-12 items-center justify-center rounded-2xl border border-orange-500/20 bg-orange-500/10 shadow-[0_0_30px_rgba(249,115,22,.08)]"
               >
                 <span className="font-black text-orange-500">MK</span>
               </motion.div>
@@ -164,14 +161,7 @@ const Foooter = () => {
                     target={name === 'Email' ? undefined : '_blank'}
                     rel={name === 'Email' ? undefined : 'noopener noreferrer'}
                     title={name}
-                    className="
-                      flex h-11 w-11 items-center justify-center
-                      rounded-xl border border-white/10
-                      bg-white/[.03]
-                      transition-all duration-300
-                      hover:border-orange-500/30
-                      hover:bg-orange-500/10
-                    "
+                    className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[.03] transition-all duration-300 hover:border-orange-500/30 hover:bg-orange-500/10"
                   >
                     <Icon size={17} className={color} />
                   </Link>
@@ -189,11 +179,7 @@ const Foooter = () => {
                 <li key={name}>
                   <Link
                     href={href}
-                    className="
-                      group flex w-fit items-center gap-2
-                      text-sm text-gray-500
-                      transition-all hover:translate-x-1 hover:text-white
-                    "
+                    className="group flex w-fit items-center gap-2 text-sm text-gray-500 transition-all hover:translate-x-1 hover:text-white"
                   >
                     <span className="h-px w-0 bg-orange-500 transition-all group-hover:w-5" />
                     {name}
@@ -219,11 +205,7 @@ const Foooter = () => {
             {/* Contact */}
             <motion.div
               whileHover={{ y: -3 }}
-              className="
-                mt-6 rounded-2xl border border-white/10
-                bg-white/[.025] p-4
-                hover:border-orange-500/20
-              "
+              className="mt-6 rounded-2xl border border-white/10 bg-white/[.025] p-4 hover:border-orange-500/20"
             >
               <Link
                 href="mailto:muradvcv@gmail.com"
@@ -282,13 +264,7 @@ const Foooter = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     title={`Visit ${name} official website`}
-                    className="
-                      flex h-9 w-9 items-center justify-center
-                      rounded-lg border border-white/10
-                      bg-white/[.03]
-                      transition-all hover:border-orange-500/30
-                      hover:bg-orange-500/10
-                    "
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[.03] transition-all hover:border-orange-500/30 hover:bg-orange-500/10"
                   >
                     <Icon size={16} className={color} />
                   </Link>
@@ -313,13 +289,10 @@ const Foooter = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="
-            flex flex-col items-center justify-between gap-5
-            py-7 text-center sm:flex-row sm:text-left
-          "
+          className="flex flex-col items-center justify-between gap-5 py-7 text-center sm:flex-row sm:text-left"
         >
           <p className="text-[11px] text-gray-600">
-            © {year}{' '}
+            © {year ?? ''}{' '}
             <span className="text-gray-400">
               Md. Khalekuzzaman
             </span>
@@ -362,13 +335,7 @@ const Foooter = () => {
 
             <motion.span
               whileHover={{ y: -5, scale: 1.08 }}
-              className="
-                flex h-9 w-9 items-center justify-center
-                rounded-xl border border-white/10
-                bg-white/[.03]
-                group-hover:border-orange-500/30
-                group-hover:bg-orange-500/10
-              "
+              className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[.03] group-hover:border-orange-500/30 group-hover:bg-orange-500/10"
             >
               <MdKeyboardArrowUp size={18} />
             </motion.span>

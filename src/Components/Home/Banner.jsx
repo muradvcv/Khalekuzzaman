@@ -115,14 +115,7 @@ const TypewriterRole = () => {
       {text}
 
       <span
-        className="
-          ml-1
-          inline-block
-          h-5
-          w-[2px]
-          animate-pulse
-          bg-[#DC2F02]
-        "
+        className="ml-1 inline-block h-5 w-[2px] animate-pulse bg-[#DC2F02]"
       />
     </span>
   );
@@ -135,13 +128,7 @@ const TypewriterRole = () => {
 const Banner = () => {
   return (
     <section
-      className="
-        relative
-        overflow-hidden
-        bg-[#050505]
-        py-20
-        text-white
-      "
+      className="relative overflow-hidden bg-[#050505] py-20 text-white"
     >
       {/* =========================
           BACKGROUND
@@ -161,44 +148,19 @@ const Banner = () => {
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="
-            absolute
-            left-[70%]
-            top-[15%]
-            h-[500px]
-            w-[500px]
-            -translate-x-1/2
-            rounded-full
-            bg-[#DC2F02]
-            blur-[150px]
-          "
+          className="absolute left-[70%] top-[15%] h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#DC2F02] blur-[150px]"
         />
 
         {/* Bottom Glow */}
 
         <div
-          className="
-            absolute
-            -bottom-40
-            -left-40
-            h-[400px]
-            w-[400px]
-            rounded-full
-            bg-[#DC2F02]/5
-            blur-[120px]
-          "
+          className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-[#DC2F02]/5 blur-[120px]"
         />
 
         {/* Grid */}
 
         <div
-          className="
-            absolute
-            inset-0
-            opacity-[0.025]
-            [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)]
-            [background-size:55px_55px]
-          "
+          className="absolute inset-0 opacity-[0.025] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:55px_55px]"
         />
       </div>
 
@@ -207,21 +169,10 @@ const Banner = () => {
       ========================= */}
 
       <div
-        className="
-          relative
-          mx-auto
-          max-w-7xl
-          px-6
-          pt-8
-        "
+        className="relative mx-auto max-w-7xl px-6 pt-8"
       >
         <div
-          className="
-            grid
-            min-h-[520px]
-            items-center
-            lg:grid-cols-2
-          "
+          className="grid min-h-[520px] items-center lg:grid-cols-2"
         >
 
           {/* ==================================================
@@ -245,12 +196,7 @@ const Banner = () => {
             {/* Greeting */}
 
             <p
-              className="
-                mb-3
-                text-base
-                font-medium
-                text-[#DC2F02]
-              "
+              className="mb-3 text-base font-medium text-[#DC2F02]"
             >
               Hi, I&apos;m
             </p>
@@ -258,24 +204,10 @@ const Banner = () => {
             {/* Name */}
 
             <h1
-              className="
-                text-4xl
-                font-bold
-                tracking-tight
-                md:text-5xl
-              "
+              className="text-4xl font-bold tracking-tight md:text-5xl"
             >
               <span
-                className="
-                  bg-gradient-to-r
-                  from-[#F5F5F5]
-                  via-[#D9D9D9]
-                  to-[#DC2F02]
-                  bg-clip-text
-                  font-black-ops
-                  tracking-wider
-                  text-transparent
-                "
+                className="bg-gradient-to-r from-[#F5F5F5] via-[#D9D9D9] to-[#DC2F02] bg-clip-text font-black-ops tracking-wider text-transparent"
               >
                 Md. Khalekuzzaman
               </span>
@@ -284,17 +216,7 @@ const Banner = () => {
             {/* Role */}
 
             <h2
-              className="
-                mt-3
-                flex
-                min-h-[32px]
-                flex-wrap
-                items-center
-                gap-1
-                text-lg
-                text-gray-300
-                font-breeserif
-              "
+              className="mt-3 flex min-h-[32px] flex-wrap items-center gap-1 text-lg text-gray-300 font-breeserif"
             >
               <span>
                 Full Stack Developer/
@@ -306,13 +228,7 @@ const Banner = () => {
             {/* Description */}
 
             <p
-              className="
-                mt-5
-                max-w-md
-                text-sm
-                leading-6
-                text-gray-400
-              "
+              className="mt-5 max-w-md text-sm leading-6 text-gray-400"
             >
               I build modern, responsive and scalable web
               applications using MongoDB, Express.js, React,
@@ -324,41 +240,19 @@ const Banner = () => {
             ========================= */}
 
             <div
-              className="
-                mt-6
-                flex
-                flex-wrap
-                gap-3
-              "
+              className="mt-6 flex flex-wrap gap-3"
             >
               {/* View Work */}
 
               <Link
                 href="/projects"
-                className="
-                  group
-                  flex
-                  items-center
-                  gap-2
-                  rounded
-                  bg-[#DC2F02]
-                  px-5
-                  py-3
-                  text-sm
-                  font-semibold
-                  transition
-                  hover:bg-[#ef3b0a]
-                  hover:shadow-[0_0_25px_rgba(220,47,2,0.3)]
-                "
+                className="group flex items-center gap-2 rounded bg-[#DC2F02] px-5 py-3 text-sm font-semibold transition hover:bg-[#ef3b0a] hover:shadow-[0_0_25px_rgba(220,47,2,0.3)]"
               >
                 View My Work
 
                 <ArrowRight
                   size={16}
-                  className="
-                    transition
-                    group-hover:translate-x-1
-                  "
+                  className="transition group-hover:translate-x-1"
                 />
               </Link>
 
@@ -367,22 +261,7 @@ const Banner = () => {
               <a
                 href="/resume.pdf"
                 download
-                className="
-                  flex
-                  items-center
-                  gap-2
-                  rounded
-                  border
-                  border-[#DC2F02]
-                  px-5
-                  py-3
-                  text-sm
-                  font-semibold
-                  text-gray-200
-                  transition
-                  hover:bg-[#DC2F02]
-                  hover:text-white
-                "
+                className="flex items-center gap-2 rounded border border-[#DC2F02] px-5 py-3 text-sm font-semibold text-gray-200 transition hover:bg-[#DC2F02] hover:text-white"
               >
                 <Download size={16} />
 
@@ -395,11 +274,7 @@ const Banner = () => {
             ========================= */}
 
             <div
-              className="
-                mt-6
-                flex
-                gap-3
-              "
+              className="mt-6 flex gap-3"
             >
               {socials.map(
                 ({ icon: Icon, link }, index) => (
@@ -408,22 +283,7 @@ const Banner = () => {
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="
-                      flex
-                      h-10
-                      w-10
-                      items-center
-                      justify-center
-                      rounded
-                      border
-                      border-white/10
-                      bg-white/5
-                      text-gray-300
-                      transition
-                      hover:-translate-y-1
-                      hover:border-[#DC2F02]
-                      hover:text-[#DC2F02]
-                    "
+                    className="flex h-10 w-10 items-center justify-center rounded border border-white/10 bg-white/5 text-gray-300 transition hover:-translate-y-1 hover:border-[#DC2F02] hover:text-[#DC2F02]"
                   >
                     <Icon size={20} />
                   </a>
@@ -434,22 +294,7 @@ const Banner = () => {
 
               <a
                 href="mailto:muradvcv@gmail.com"
-                className="
-                  flex
-                  h-10
-                  w-10
-                  items-center
-                  justify-center
-                  rounded
-                  border
-                  border-white/10
-                  bg-white/5
-                  text-gray-300
-                  transition
-                  hover:-translate-y-1
-                  hover:border-[#DC2F02]
-                  hover:text-[#DC2F02]
-                "
+                className="flex h-10 w-10 items-center justify-center rounded border border-white/10 bg-white/5 text-gray-300 transition hover:-translate-y-1 hover:border-[#DC2F02] hover:text-[#DC2F02]"
               >
                 <Mail size={18} />
               </a>
@@ -480,26 +325,7 @@ const Banner = () => {
                 whileTap={{
                   scale: 0.98,
                 }}
-                className="
-                  group
-                  mt-8
-                  flex
-                  max-w-md
-                  cursor-pointer
-                  items-center
-                  gap-4
-                  rounded-2xl
-                  border
-                  border-white/10
-                  bg-white/[0.025]
-                  p-4
-                  backdrop-blur-sm
-                  transition-all
-                  duration-300
-                  hover:border-[#DC2F02]/40
-                  hover:bg-[#DC2F02]/[0.04]
-                  hover:shadow-[0_10px_40px_rgba(220,47,2,0.08)]
-                "
+                className="group mt-8 flex max-w-md cursor-pointer items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.025] p-4 backdrop-blur-sm transition-all duration-300 hover:border-[#DC2F02]/40 hover:bg-[#DC2F02]/[0.04] hover:shadow-[0_10px_40px_rgba(220,47,2,0.08)]"
               >
 
                 {/* Admin Icon */}
@@ -509,18 +335,7 @@ const Banner = () => {
                     rotate: -5,
                     scale: 1.08,
                   }}
-                  className="
-                    flex
-                    h-11
-                    w-11
-                    shrink-0
-                    items-center
-                    justify-center
-                    rounded-xl
-                    border
-                    border-[#DC2F02]/20
-                    bg-[#DC2F02]/10
-                  "
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#DC2F02]/20 bg-[#DC2F02]/10"
                 >
                   <MdAdminPanelSettings
                     size={23}
@@ -532,24 +347,13 @@ const Banner = () => {
 
                 <div className="min-w-0">
                   <p
-                    className="
-                      text-[10px]
-                      font-bold
-                      uppercase
-                      tracking-[0.18em]
-                      text-[#DC2F02]
-                    "
+                    className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#DC2F02]"
                   >
                     Continue as Admin
                   </p>
 
                   <p
-                    className="
-                      mt-1
-                      text-xs
-                      leading-5
-                      text-gray-500
-                    "
+                    className="mt-1 text-xs leading-5 text-gray-500"
                   >
                     Continue as an admin to manage
                     portfolio content.
@@ -560,16 +364,7 @@ const Banner = () => {
 
                 <MdArrowOutward
                   size={18}
-                  className="
-                    ml-auto
-                    shrink-0
-                    text-gray-600
-                    transition-all
-                    duration-300
-                    group-hover:-translate-y-1
-                    group-hover:translate-x-1
-                    group-hover:text-[#DC2F02]
-                  "
+                  className="ml-auto shrink-0 text-gray-600 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[#DC2F02]"
                 />
               </motion.div>
             </Link>
@@ -580,29 +375,14 @@ const Banner = () => {
           ================================================== */}
 
           <div
-            className="
-              relative
-              hidden
-              h-[520px]
-              overflow-hidden
-              lg:block
-            "
+            className="relative hidden h-[520px] overflow-hidden lg:block"
           >
 
             {/* Outer White Dots */}
 
             <motion.svg
               viewBox="0 0 540 540"
-              className="
-                absolute
-                left-1/2
-                top-1/2
-                z-0
-                h-[540px]
-                w-[540px]
-                -translate-x-1/2
-                -translate-y-1/2
-              "
+              className="absolute left-1/2 top-1/2 z-0 h-[540px] w-[540px] -translate-x-1/2 -translate-y-1/2"
               animate={{
                 rotate: 360,
               }}
@@ -629,16 +409,7 @@ const Banner = () => {
 
             <motion.svg
               viewBox="0 0 480 480"
-              className="
-                absolute
-                left-1/2
-                top-1/2
-                z-[1]
-                h-[480px]
-                w-[480px]
-                -translate-x-1/2
-                -translate-y-1/2
-              "
+              className="absolute left-1/2 top-1/2 z-[1] h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2"
               animate={{
                 rotate: -360,
               }}
@@ -665,16 +436,7 @@ const Banner = () => {
 
             <motion.svg
               viewBox="0 0 440 440"
-              className="
-                absolute
-                left-1/2
-                top-1/2
-                z-[2]
-                h-[440px]
-                w-[440px]
-                -translate-x-1/2
-                -translate-y-1/2
-              "
+              className="absolute left-1/2 top-1/2 z-[2] h-[440px] w-[440px] -translate-x-1/2 -translate-y-1/2"
               animate={{
                 rotate: 360,
               }}
@@ -700,19 +462,7 @@ const Banner = () => {
             {/* Center Circle */}
 
             <div
-              className="
-                absolute
-                left-1/2
-                top-1/2
-                z-[3]
-                h-[390px]
-                w-[390px]
-                -translate-x-1/2
-                -translate-y-1/2
-                rounded-full
-                border
-                border-white/10
-              "
+              className="absolute left-1/2 top-1/2 z-[3] h-[390px] w-[390px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10"
             />
 
             {/* Red Glow */}
@@ -727,34 +477,13 @@ const Banner = () => {
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}
-              className="
-                absolute
-                left-1/2
-                top-[55%]
-                z-[2]
-                h-[230px]
-                w-[280px]
-                -translate-x-1/2
-                -translate-y-1/2
-                rounded-full
-                bg-[#DC2F02]/45
-                blur-[90px]
-              "
+              className="absolute left-1/2 top-[55%] z-[2] h-[230px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#DC2F02]/45 blur-[90px]"
             />
 
             {/* Bottom Red Shape */}
 
             <div
-              className="
-                absolute
-                -bottom-24
-                right-[-70px]
-                z-[1]
-                h-[260px]
-                w-[320px]
-                rounded-tl-[220px]
-                bg-[#DC2F02]/60
-              "
+              className="absolute -bottom-24 right-[-70px] z-[1] h-[260px] w-[320px] rounded-tl-[220px] bg-[#DC2F02]/60"
             />
 
             {/* Profile Image */}
@@ -775,18 +504,7 @@ const Banner = () => {
                 delay: 0.2,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="
-                absolute
-                left-1/2
-                top-1/2
-                z-[10]
-                h-[400px]
-                w-[400px]
-                -translate-x-1/2
-                -translate-y-1/2
-                overflow-hidden
-                rounded-full
-              "
+              className="absolute left-1/2 top-1/2 z-[10] h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full"
             >
               <Image
                 src="/profile.png"
@@ -794,17 +512,7 @@ const Banner = () => {
                 width={700}
                 height={800}
                 priority
-                className="
-                  absolute
-                  bottom-[-2px]
-                  left-1/2
-                  h-[405px]
-                  w-auto
-                  max-w-none
-                  -translate-x-1/2
-                  object-contain
-                  object-bottom
-                "
+                className="absolute bottom-[-2px] left-1/2 h-[405px] w-auto max-w-none -translate-x-1/2 object-contain object-bottom"
               />
             </motion.div>
           </div>
@@ -814,28 +522,14 @@ const Banner = () => {
           ================================================== */}
 
           <div
-            className="
-              relative
-              mt-8
-              flex
-              h-[400px]
-              justify-center
-              overflow-hidden
-              lg:hidden
-            "
+            className="relative mt-8 flex h-[400px] justify-center overflow-hidden lg:hidden"
           >
 
             {/* Mobile Outer Dots */}
 
             <motion.svg
               viewBox="0 0 370 370"
-              className="
-                absolute
-                bottom-0
-                z-0
-                h-[370px]
-                w-[370px]
-              "
+              className="absolute bottom-0 z-0 h-[370px] w-[370px]"
               animate={{
                 rotate: 360,
               }}
@@ -862,13 +556,7 @@ const Banner = () => {
 
             <motion.svg
               viewBox="0 0 340 340"
-              className="
-                absolute
-                bottom-[15px]
-                z-[1]
-                h-[340px]
-                w-[340px]
-              "
+              className="absolute bottom-[15px] z-[1] h-[340px] w-[340px]"
               animate={{
                 rotate: -360,
               }}
@@ -903,16 +591,7 @@ const Banner = () => {
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}
-              className="
-                absolute
-                bottom-10
-                z-[2]
-                h-[200px]
-                w-[250px]
-                rounded-full
-                bg-[#DC2F02]/40
-                blur-[80px]
-              "
+              className="absolute bottom-10 z-[2] h-[200px] w-[250px] rounded-full bg-[#DC2F02]/40 blur-[80px]"
             />
 
             {/* Mobile Image */}
@@ -931,15 +610,7 @@ const Banner = () => {
               transition={{
                 duration: 0.8,
               }}
-              className="
-                absolute
-                bottom-[10px]
-                z-[10]
-                h-[320px]
-                w-[320px]
-                overflow-hidden
-                rounded-full
-              "
+              className="absolute bottom-[10px] z-[10] h-[320px] w-[320px] overflow-hidden rounded-full"
             >
               <Image
                 src="/profile.png"
@@ -947,17 +618,7 @@ const Banner = () => {
                 width={500}
                 height={600}
                 priority
-                className="
-                  absolute
-                  bottom-0
-                  left-1/2
-                  h-[325px]
-                  w-auto
-                  max-w-none
-                  -translate-x-1/2
-                  object-contain
-                  object-bottom
-                "
+                className="absolute bottom-0 left-1/2 h-[325px] w-auto max-w-none -translate-x-1/2 object-contain object-bottom"
               />
             </motion.div>
           </div>
