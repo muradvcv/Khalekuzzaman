@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import {
   User,Mail,Lock,Eye,EyeOff,ArrowRight,ArrowLeft,ShieldCheck,CircleCheck,Sparkles,
+  CircleAlert,
 } from 'lucide-react';
 import Animation from '@/Components/Home/Animation';
 import { authClient } from '@/lib/auth-client';
@@ -62,6 +63,8 @@ const Register = () => {
 
   const [confirmPasswordError, setConfirmPasswordError] = useState(false);
 
+  const [authError, setAuthError] = useState('');
+
   const passwordsMatch =
     password.length > 0 &&
     confirmPassword.length > 0 &&
@@ -110,10 +113,11 @@ const Register = () => {
         name: alldata.name,
         email: alldata.email,
         password: alldata.password,
+        image: alldata.imageUrl,
       });
 
       if (error) {
-        console.log(error);
+        setAuthError(error.message);
         return;
       }
 
@@ -286,12 +290,32 @@ const Register = () => {
                 />
 
               </div>
+              
 
               {/* FORM */}
               <form
                 onSubmit={handleSubmit}
                 className="space-y-3.5"
               >
+                {authError && (
+                 
+                  <div className="mb-4 flex items-start gap-3 rounded-xl border border-red-500/20 bg-red-500/10 px-3.5 py-3 shadow-[0_0_20px_rgba(239,68,68,0.05)]">
+                    <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-red-500/10 text-red-500">
+                      <CircleAlert size={15} />
+                    </div>
+
+                    <div className="min-w-0">
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-red-400">
+                        Registration Failed
+                      </p>
+
+                      <p className="mt-0.5 break-words text-[10px] leading-4 text-red-300/80">
+                        {authError}
+                      </p>
+                    </div>
+
+                    </div>
+                )}
 
                 {/* Row 1 */}
                 <div className="grid gap-3 sm:grid-cols-2">
