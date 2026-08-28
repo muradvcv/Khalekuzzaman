@@ -278,7 +278,7 @@ const Banner = () => {
             >
               {socials.map(
                 ({ icon: Icon, link }, index) => (
-                  <a
+                  <Link
                     key={index}
                     href={link}
                     target="_blank"
@@ -286,18 +286,18 @@ const Banner = () => {
                     className="flex h-10 w-10 items-center justify-center rounded border border-white/10 bg-white/5 text-gray-300 transition hover:-translate-y-1 hover:border-[#DC2F02] hover:text-[#DC2F02]"
                   >
                     <Icon size={20} />
-                  </a>
+                  </Link>
                 )
               )}
 
               {/* Email */}
 
-              <a
-                href="mailto:muradvcv@gmail.com"
+              <Link
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=muradvcv@gmail.com" target="_blank"
                 className="flex h-10 w-10 items-center justify-center rounded border border-white/10 bg-white/5 text-gray-300 transition hover:-translate-y-1 hover:border-[#DC2F02] hover:text-[#DC2F02]"
               >
                 <Mail size={18} />
-              </a>
+              </Link>
             </div>
 
             {/* ==================================================
