@@ -19,7 +19,7 @@ import {
 } from 'react-icons/md';
 
 /* =========================
-   SOCIAL LINKS
+  SOCIAL LINKS
 ========================= */
 
 const socials = [
@@ -43,7 +43,6 @@ const roles = [
   'React Developer',
   'Next.js Developer',
 ];
-
 const TypewriterRole = () => {
   const [text, setText] = useState('');
   const [roleIndex, setRoleIndex] = useState(0);
