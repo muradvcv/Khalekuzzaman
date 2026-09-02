@@ -18,9 +18,7 @@ import {
   MdArrowOutward,
 } from 'react-icons/md';
 
-/* =========================
-  SOCIAL LINKS
-========================= */
+
 
 const socials = [
   {
