@@ -106,7 +106,6 @@ export default function Login() {
     ) {
       return "No account was found with this email.";
     }
-
     if (
       code === "INVALID_EMAIL" ||
       lowerMessage.includes("invalid email")

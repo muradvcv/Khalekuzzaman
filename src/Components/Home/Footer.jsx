@@ -346,7 +346,7 @@ const Foooter = () => {
   );
 };
 
-/*  SMALL COMPONENTS  */
+/* smaill component*/
 
 const Title = ({ text }) => (
   <div className="mb-6 flex items-center gap-3">
