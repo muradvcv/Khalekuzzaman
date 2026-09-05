@@ -3,17 +3,23 @@
 import Link from 'next/link';
 import { Menu, X, ArrowRight, LayoutDashboard } from 'lucide-react';
 import React, { useState } from 'react';
+import { useSession } from '@/lib/auth-client';
 
 const navItems = [
   { name: 'Home', link: '/' },
-  { name: 'About', link: '#about' },
-  { name: 'Skills', link: '#skills' },
-  { name: 'Projects', link: '#projects' },
-  { name: 'Experience', link: '#experience' },
-  { name: 'Contact', link: '#contact' },
+  { name: 'About', link: '/about' },
+  { name: 'Skills', link: '/skills' },
+  { name: 'Projects', link: '/projects' },
+  { name: 'Experience', link: '/experience' },
+  { name: 'Contact', link: '/contact' },
 ];
 
 const Navbar = () => {
+  const { data: session, isPending } = useSession();
+  const isRoleAdmin = session?.user?.role === 'admin'
+
+
+
   const [open, setOpen] = useState(false);
 
   return (
@@ -45,7 +51,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            href="#contact"
+            href="/contact"
             className="group flex items-center gap-2 rounded-md bg-[#DC2F02] px-5 py-3 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#ef3b0a] hover:shadow-[0_0_25px_rgba(220,47,2,0.35)]"
           >
             Hire Me
@@ -87,7 +93,7 @@ const Navbar = () => {
             </Link>
 
             <Link
-              href="#contact"
+              href="/contact"
               onClick={() => setOpen(false)}
               className="flex w-fit items-center gap-2 rounded-md bg-[#DC2F02] px-5 py-3 text-sm font-semibold text-white transition duration-300 hover:bg-[#ef3b0a] hover:shadow-[0_0_20px_rgba(220,47,2,0.3)]"
             >
