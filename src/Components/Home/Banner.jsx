@@ -253,8 +253,7 @@ const Banner = () => {
                 />
               </Link>
 
-              {/* Download CV */}
-
+              {/* Download Resume*/}
               <a
                 href="/resume.pdf"
                 download
@@ -262,7 +261,7 @@ const Banner = () => {
               >
                 <Download size={16} />
 
-                Download CV
+                Download Resume
               </a>
             </div>
 
