@@ -9,7 +9,6 @@ import {
 import "./globals.css";
 
 import Footer from "@/Components/Home/Footer";
-import Navabar from "@/Components/Home/Navbar";
 import Preloader from "@/Components/Preloader";
 import Navbar from "@/Components/Home/Navbar";
 

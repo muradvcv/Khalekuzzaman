@@ -25,6 +25,7 @@ import {
   MdLocationOn,
   MdKeyboardArrowUp,
 } from 'react-icons/md';
+import { usePathname } from 'next/navigation';
 
 const Foooter = () => {
   const [year, setYear] = useState(null);
@@ -67,6 +68,10 @@ const Foooter = () => {
       transition: { duration: 0.6, ease: 'easeOut' },
     },
   };
+    const pathName = usePathname();
+    if (pathName.includes("/dashboard")) {
+      return null; // Don't render the Navbar on admin pages
+    }
 
   return (
     <footer

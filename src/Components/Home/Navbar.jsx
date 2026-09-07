@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useSession } from "@/lib/auth-client";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { name: "Home", link: "#home", id: "home" },
@@ -20,6 +21,7 @@ const navItems = [
 ];
 
 const Navbar = () => {
+ 
   const { data: session, isPending } = useSession();
 
   const [open, setOpen] = useState(false);
@@ -32,6 +34,8 @@ const Navbar = () => {
   const user = session?.user;
 
   const isRoleAdmin = user?.role === "admin";
+
+  
 
   // =========================
   // SCROLL SPY
@@ -97,6 +101,11 @@ const Navbar = () => {
       console.error("Logout error:", error);
     }
   };
+
+  const pathName = usePathname();
+  if (pathName.includes("/dashboard")) {
+    return null; // Don't render the Navbar on admin pages
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#171614]/95 font-breeserif tracking-wider backdrop-blur-md">
@@ -166,7 +175,7 @@ const Navbar = () => {
 
           {!isPending && isRoleAdmin && (
             <Link
-              href="/admin/dashboard"
+              href="/dashboard"
               className="group flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-gray-300 transition duration-300 hover:-translate-y-0.5 hover:border-[#DC2F02]/40 hover:bg-[#DC2F02]/10 hover:text-white"
             >
               <LayoutDashboard
@@ -272,7 +281,7 @@ const Navbar = () => {
 
             {!isPending && isRoleAdmin && (
               <Link
-                href="/admin/dashboard"
+                href="/dashboard"
                 onClick={() => setOpen(false)}
                 className="mt-2 flex w-fit items-center gap-2 rounded-md border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-gray-300 transition duration-300 hover:border-[#DC2F02]/40 hover:bg-[#DC2F02]/10 hover:text-white"
               >
