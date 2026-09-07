@@ -11,7 +11,7 @@ import {
 import { Award } from "lucide-react";
 
 const navItems = [
-  { icon: House, label: "Home", href: "/dashboard" },
+  { icon: House, label: "Home", href: "/" },
   { icon: Briefcase, label: "Experience", href: "/dashboard/experience" },
   { icon: GraduationCap, label: "Education", href: "/dashboard/education" },
   { icon: Code, label: "Skills", href: "/dashboard/skills" },
