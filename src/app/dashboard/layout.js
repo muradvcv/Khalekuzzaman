@@ -2,26 +2,23 @@ import Sidebar from "@/Components/Dashboard/Sidebar";
 
 export default function RootLayout({ children }) {
   return (
-    <div className="min-h-screen bg-black text-white flex">
+    <div className="min-h-screen bg-black text-white">
 
       {/* Sidebar */}
-      <aside className=" shrink-0 border-r border-white/10">
-       <Sidebar/>
-      </aside>
+      <Sidebar />
 
       {/* Main Content */}
-      <div className="flex min-h-screen flex-1 flex-col">
+      <div className="min-h-screen md:ml-64">
+
         {/* Navbar */}
-        <header className="h-16 shrink-0 border-b border-white/10 px-8 flex items-center">
+        <header className="flex h-16 items-center border-b border-white/10 px-8">
           Navbar
         </header>
 
         {/* Page Content */}
-        <main className="flex-1 p-8">
+        <main className="p-8">
           {children}
         </main>
-
-       
 
       </div>
     </div>
