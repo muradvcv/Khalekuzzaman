@@ -5,7 +5,7 @@ export default function RootLayout({ children }) {
     <div className="min-h-screen bg-black text-white flex">
 
       {/* Sidebar */}
-      <aside className="w-64 shrink-0 border-r border-white/10 bg-zinc-950 px-5 py-6">
+      <aside className=" shrink-0 border-r border-white/10">
        <Sidebar/>
       </aside>
 

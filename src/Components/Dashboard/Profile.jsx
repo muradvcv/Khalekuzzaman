@@ -65,9 +65,9 @@ const Profile = () => {
           type="button"
           aria-label="Logout"
           title="Logout"
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-zinc-500 transition-all duration-200 hover:bg-red-50 hover:text-red-500 active:scale-95"
+          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-zinc-500 transition-all duration-200 hover:bg-red-50 hover:text-red-500 active:scale-95 "
         >
-          <LogOut className="h-4 w-4" />
+          <LogOut className="h-4 w-4 cursor-pointer" />
         </button>
       </div>
     </div>

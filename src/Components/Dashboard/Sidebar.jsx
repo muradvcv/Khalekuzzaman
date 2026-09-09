@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Briefcase,
   Code,
@@ -8,7 +10,8 @@ import {
   GraduationCap,
   House,
 } from "@gravity-ui/icons";
-import { Award } from "lucide-react";
+import { Award, Menu, X } from "lucide-react";
+import { useState } from "react";
 import Profile from "./Profile";
 
 const navItems = [
@@ -24,38 +27,131 @@ const navItems = [
 ];
 
 const Sidebar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <aside className="fixed left-0 top-0 z-50 h-screen w-64 overflow-y-auto border-r border-white/10 px-5 py-6 =">
-      <div className="mb-10 px-3">
-        <h1 className="text-xl font-bold text-white">
-          Portfolio<span className="text-purple-500">.</span>
-        </h1>
+    <>
+      {/* ================= MOBILE TOP BAR ================= */}
+      <header className="fixed left-0 top-0 z-40 flex h-16 w-full items-center justify-between border-b border-white/10 bg-zinc-950/95 px-4 backdrop-blur-xl md:hidden">
+        <div>
+          <h1 className="text-lg font-bold text-white">
+            Portfolio<span className="text-purple-500">.</span>
+          </h1>
 
-        <p className="mt-1 text-xs text-zinc-500">
-          Admin Dashboard
-        </p>
-      </div>
+          <p className="text-[10px] text-zinc-500">
+            Admin Dashboard
+          </p>
+        </div>
 
-      <nav className="flex flex-col gap-1.5">
-        {navItems.map((item) => {
-          const Icon = item.icon;
+        {/* Menu Button */}
+        <button
+          onClick={() => setIsOpen(true)}
+          className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-zinc-300 transition-all hover:bg-white/10 hover:text-white active:scale-95"
+          aria-label="Open menu"
+        >
+          <Menu className="h-5 w-5" />
+        </button>
+      </header>
 
-          return (
-            <a
-              key={item.label}
-              href={item.href}
-              className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-zinc-400 transition-all duration-200 hover:bg-white/5 hover:text-white"
-            >
-              <Icon className="size-5" />
-              <span>{item.label}</span>
-            </a>
-          );
-        })}
-      </nav>
-      <div className="mt-25">
-        <Profile/>
-      </div>
-    </aside>
+      {/* ================= OVERLAY ================= */}
+      {isOpen && (
+        <div
+          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
+        />
+      )}
+
+      {/* ================= SIDEBAR ================= */}
+      <aside
+        className={`
+          fixed left-0 top-0 z-50
+          flex h-screen w-64 flex-col
+          border-r border-white/10
+          bg-zinc-950
+          px-5 py-6
+          shadow-2xl shadow-black/40
+          transition-transform duration-300 ease-in-out
+
+          md:translate-x-0
+
+          ${isOpen
+            ? "translate-x-0"
+            : "-translate-x-full"
+          }
+        `}
+      >
+        {/* ================= LOGO ================= */}
+        <div className="mb-10 flex items-start justify-between px-3">
+          <div>
+            <h1 className="text-xl font-bold text-white">
+              Portfolio<span className="text-purple-500">.</span>
+            </h1>
+
+            <p className="mt-1 text-xs text-zinc-500">
+              Admin Dashboard
+            </p>
+          </div>
+
+          {/* Mobile Close Button */}
+          <button
+            onClick={() => setIsOpen(false)}
+            className="flex h-8 w-8 items-center justify-center rounded-lg text-zinc-500 transition hover:bg-white/5 hover:text-white md:hidden"
+            aria-label="Close menu"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
+        {/* ================= NAVIGATION ================= */}
+        <nav className="flex flex-1 flex-col gap-1.5 overflow-y-auto">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className="
+                  group flex items-center gap-3
+                  rounded-xl
+                  border border-transparent
+                  px-4 py-3
+                  text-sm font-medium
+                  text-zinc-400
+                  transition-all duration-200
+                  hover:border-white/10
+                  hover:bg-white/[0.06]
+                  hover:text-white
+                "
+              >
+                <Icon
+                  className="
+                    size-5
+                    text-zinc-500
+                    transition-colors
+                    group-hover:text-purple-400
+                  "
+                />
+
+                <span>{item.label}</span>
+              </a>
+            );
+          })}
+        </nav>
+
+        {/* ================= PROFILE ================= */}
+        <div className="mt-6 border-t border-white/5 pt-4">
+          <Profile />
+        </div>
+      </aside>
+
+      {/* ================= DESKTOP CONTENT SPACE ================= */}
+      <div className="hidden md:block md:w-64" />
+
+      {/* Mobile content top spacing */}
+      <div className="h-16 md:hidden" />
+    </>
   );
 };
 
