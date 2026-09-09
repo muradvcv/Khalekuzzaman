@@ -17,14 +17,14 @@ import Profile from "./Profile";
 
 const navItems = [
   { icon: House, label: "Home", href: "/" },
-  { icon: Briefcase, label: "Experience", href: "/dashboard/experience" },
-  { icon: GraduationCap, label: "Education", href: "/dashboard/education" },
-  { icon: Code, label: "Skills", href: "/dashboard/skills" },
-  { icon: Folder, label: "Projects", href: "/dashboard/projects" },
-  { icon: Award, label: "Certificates", href: "/dashboard/certificates" },
-  { icon: FileText, label: "Resume", href: "/dashboard/resume" },
-  { icon: Envelope, label: "Messages", href: "/dashboard/messages" },
-  { icon: Gear, label: "Settings", href: "/dashboard/settings" },
+  { icon: Briefcase, label: "Experience", href: "/dashboard/admin/experience" },
+  { icon: GraduationCap, label: "Education", href: "/dashboard/admin/education" },
+  { icon: Code, label: "Skills", href: "/dashboard/admin/skills" },
+  { icon: Folder, label: "Projects", href: "/dashboard/admin/projects" },
+  { icon: Award, label: "Certificates", href: "/dashboard/admin/certificates" },
+  { icon: FileText, label: "Resume", href: "/dashboard/admin/resume" },
+  { icon: Envelope, label: "Messages", href: "/dashboard/admin/messages" },
+  { icon: Gear, label: "Settings", href: "/dashboard/admin/settings" },
 ];
 
 const Sidebar = () => {
