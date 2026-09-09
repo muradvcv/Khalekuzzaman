@@ -9,6 +9,7 @@ import {
   House,
 } from "@gravity-ui/icons";
 import { Award } from "lucide-react";
+import Profile from "./Profile";
 
 const navItems = [
   { icon: House, label: "Home", href: "/" },
@@ -24,7 +25,7 @@ const navItems = [
 
 const Sidebar = () => {
   return (
-    <aside className="fixed left-0 top-0 z-50 h-screen w-64 overflow-y-auto border-r border-white/10 bg-zinc-950 px-5 py-6">
+    <aside className="fixed left-0 top-0 z-50 h-screen w-64 overflow-y-auto border-r border-white/10 px-5 py-6 =">
       <div className="mb-10 px-3">
         <h1 className="text-xl font-bold text-white">
           Portfolio<span className="text-purple-500">.</span>
@@ -51,6 +52,9 @@ const Sidebar = () => {
           );
         })}
       </nav>
+      <div className="mt-25">
+        <Profile/>
+      </div>
     </aside>
   );
 };
