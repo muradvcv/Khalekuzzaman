@@ -14,9 +14,10 @@ import { Award, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import Profile from "./Profile";
+import { IoReturnUpBackOutline } from "react-icons/io5";
 
 const navItems = [
-  { icon: House, label: "Home", href: "/" },
+  { icon: House, label: "Home", href: "/dashboard" },
   { icon: Briefcase, label: "Experience", href: "/dashboard/admin/experience" },
   { icon: GraduationCap, label: "Education", href: "/dashboard/admin/education" },
   { icon: Code, label: "Skills", href: "/dashboard/admin/skills" },
@@ -35,6 +36,7 @@ const Sidebar = () => {
       {/* Mobile Header */}
       <header className="fixed left-0 top-0 z-40 flex h-16 w-full items-center justify-between border-b border-white/10 bg-zinc-950 px-4 md:hidden">
         <div>
+          
           <h1 className="text-lg font-bold tracking-tight text-white">
             Portfolio<span className="text-purple-500">.</span>
           </h1>
@@ -69,14 +71,23 @@ const Sidebar = () => {
       >
         {/* Header */}
         <div className="mb-10 flex items-start justify-between px-3">
-          <div>
-            <h1 className="text-xl font-bold tracking-tight text-white">
-              Portfolio<span className="text-purple-500">.</span>
-            </h1>
+          <div className="flex items-center gap-4">
+            <Link href={'/'}
+              type="button"
+              className="group flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.02] text-zinc-400 shadow-lg shadow-black/20 transition-all duration-200 hover:border-purple-500/40 hover:text-purple-400 cursor-pointer"
+            >
+              <IoReturnUpBackOutline className="text-lg " />
+            </Link>
 
-            <p className="mt-1 text-xs text-zinc-500">
-              Admin Dashboard
-            </p>
+            <div>
+              <h1 className="text-xl font-semibold tracking-tight text-white">
+                Portfolio<span className="text-purple-500">.</span>
+              </h1>
+
+              <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-500">
+                Admin Dashboard
+              </p>
+            </div>
           </div>
 
           {/* Close button - Mobile only */}
