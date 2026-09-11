@@ -15,6 +15,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Profile from "./Profile";
 import { IoReturnUpBackOutline } from "react-icons/io5";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { icon: House, label: "Home", href: "/dashboard" },
@@ -30,13 +31,15 @@ const navItems = [
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
 
   return (
     <>
       {/* Mobile Header */}
       <header className="fixed left-0 top-0 z-40 flex h-16 w-full items-center justify-between border-b border-white/10 bg-zinc-950 px-4 md:hidden">
         <div>
-          
+
           <h1 className="text-lg font-bold tracking-tight text-white">
             Portfolio<span className="text-purple-500">.</span>
           </h1>
@@ -105,15 +108,24 @@ const Sidebar = () => {
         <nav className="flex flex-1 flex-col gap-1.5 overflow-y-auto">
           {navItems.map((item) => {
             const Icon = item.icon;
+            const isActiveRoute = pathname === item.href;
 
             return (
               <Link
                 key={item.label}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="group flex items-center gap-3 rounded-xl border border-transparent px-4 py-3 text-sm font-medium text-zinc-400 transition-all duration-200 hover:border-white/10 hover:bg-white/[0.06] hover:text-white"
+                className={`group flex items-center gap-3 rounded-xl border px-4 py-3 text-sm font-medium transition-all duration-200 ${isActiveRoute
+                    ? "border-orange-500/8 text-white shadow"
+                    : "border-transparent text-zinc-400 hover:border-white/10 hover:text-white"
+                  }`}
               >
-                <Icon className="size-5 shrink-0 text-zinc-500 transition-colors duration-200 group-hover:text-purple-400" />
+                <Icon
+                  className={`size-5 shrink-0 transition-colors duration-200 ${isActiveRoute
+                      ? "text-orange-500"
+                      : "text-zinc-500 group-hover:text-orange-400"
+                    }`}
+                />
 
                 <span>{item.label}</span>
               </Link>

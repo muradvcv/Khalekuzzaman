@@ -284,7 +284,7 @@ const About = () => {
               . Alongside my studies, I&apos;m gaining real-world experience
               as a{' '}
               <span className="font-semibold text-white">
-                Full Stack Developer
+                Full Stack Developer Intern
               </span>{' '}
               at{' '}
               <span className="font-semibold text-[#DC2F02]">

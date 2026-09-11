@@ -1,7 +1,8 @@
 "use client"
-import React, { useState } from "react";
 
+import React, { useState } from "react";
 const Skills = () => {
+
   const [formData, setFormData] = useState({
     category: "Frontend",
     name: "",
@@ -21,12 +22,7 @@ const Skills = () => {
 
     console.log(formData);
 
-    setFormData({
-      category: "Frontend",
-      name: "",
-      icon: "",
-      description: "",
-    });
+    
   };
 
   return (
